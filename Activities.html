@@ -1,5 +1,118 @@
-<htm>
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Page</title>
+</head>
+<style>
+
+
+    .titleBar {
+        width: 100%;
+        height: 20%;
+        display: inline-block;
+        
+    }
+
+    .section {
+        height: 1000px;
+        width: 100%;
+        background: radial-gradient(#e9c562, #ffc10745);
+        position: relative;
+        
+    }
+
+    .section_box {
+        width: 85%;
+        height: 85%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #fff6d8;
+        border-radius: 10px;
+        box-shadow: 1px 4px 22px -8px #0004;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #fee79e;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #000000;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #e9c562;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #fff6d8;
+      color: rgb(0, 0, 0);
+    }
+
+    .content {
+        
+    }
+
+    .ulContent {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+    </head>
+    
     <body>
-        <h2>Activity Page</h2>
+        <div class="section">
+        <div class="section_box">
+            <div class="titleBar">
+                <h1 style="margin: 0%">title here</h1>
+            </div>
+            <div class="topnav">
+                <ul class="ulContent">
+                    <li>
+                        <a class="active" href="#home">ACTIVITIES</a>
+                    </li>
+                    <li>
+                        <a href="#news">USERS</a>
+                    </li>
+                    <li>
+                        <a href="#contact">TRANSACTIONS</a>
+                    </li>
+                    <li>
+                        <a href="#about">QUESTIONS</a>
+                    </li>
+                    <li>
+                        <a href="#about">SYSTEM</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h2>Top Navigation Example</h2>
+                <p>Some content..</p>
+            </div>
+        </div>
+        </div>
     </body>
-</htm>
+</html>
