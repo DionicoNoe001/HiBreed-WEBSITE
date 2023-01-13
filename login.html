@@ -133,7 +133,7 @@
 <body>
 	<section class="login">
         <div style="width: 100%; height: fit-content;display: flex;justify-content: center;">
-            <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed-Web\Images\LOGO.png" style="width: 500px; height: 300px;" />
+            <img src="C:\Users\Baobabs\Desktop\Hi-Breed Web\HiBreed-WEBSITE\Images\LOGO.png" style="width: 500px; height: 300px;" />
         </div>
 		<div class="login_box">
 			<div class="left">
@@ -142,8 +142,8 @@
 					<div>
 						<h3>Welcome back,</h3>
 						<input type="text" placeholder="USERNAME" id="ID">
-						<input type="text" placeholder="PASSWORD" id="Pass">
-						<button class="submit" id="Btn">LOGIN</button>
+						<input type="password" placeholder="PASSWORD" id="Pass" onkeypress="enterKeyPressed(event)">
+						<button class="submit" id="Btn" >LOGIN</button>
 					</div>
 				</div>
 			</div>
@@ -166,10 +166,23 @@
   var userPassword = document.getElementById("Pass").value;
 
     if(userEmail == "admin" && userPassword == "12345"){
-      location.href="file:///C:/Users/noeco/OneDrive/Desktop/HiBreed-Web/Activities.html";
+      location.href="file:///C:/Users/Baobabs/Desktop/Hi-Breed%20Web/HiBreed-WEBSITE/Activities.html";
     }
     
   })
+
+  function enterKeyPressed(event) {
+    
+  var userEmail = document.getElementById("ID").value;
+  var userPassword = document.getElementById("Pass").value;
+
+    if( userEmail == "admin" && userPassword == "12345" && event.keyCode == 13) {
+
+      location.href="file:///C:/Users/Baobabs/Desktop/Hi-Breed%20Web/HiBreed-WEBSITE/Activities.html";
+
+    }
+  }
+
   </script>
 
      
