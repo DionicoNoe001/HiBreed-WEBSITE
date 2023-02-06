@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
     <title>Activity Page</title>
 
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" > -->
     <style> @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@500&display=swap'); </style>
-
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script> -->
+    
 </head>
 
 <style>
@@ -29,6 +34,12 @@
 
     .titleBar.Column img {
         margin: 15px;
+    }
+
+    .titleBar.Column h3 {
+        margin-top: 134px;
+        margin-bottom: 0;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .section {
@@ -147,6 +158,125 @@
         text-align: center;
     }
 
+    .search-bar {
+        margin-top: 3%;
+        margin-left: 50px;
+        margin-right: 50px;
+        width: 90%;
+        display: inline-block;
+    }
+    .search-bar.search {
+        float: left;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+    }
+    .search_input {
+        padding: 10px;
+        width: 300px;
+        color: #000000;
+        font-size: 14px;
+        border: 0;
+        border-radius: 10px;
+    }
+
+    .search_btn-submit{
+        position: relative;
+        padding: 10px;
+        color: #eee;
+        font-size: 13px;
+        background-color: #fd6459;
+        border: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 200ms ease-out;
+        font-family: 'Open Sans', sans-serif;
+        border-radius: 10px;
+
+    }
+    .search_btn-submit:hover {
+        background-color: #f82f21;
+        color: rgb(255, 255, 255);
+    }
+
+    /* CSS for dropdown button */
+
+    .container{
+    display: flex;
+    justify-content: left;
+    }
+
+    .btn {
+        position: relative;
+        padding: 10px;
+        color: #eee;
+        font-size: 13px;
+        background-color: #fd6459;
+        border: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 200ms ease-out;
+        font-family: 'Open Sans', sans-serif;
+        border-radius: 10px;
+    }
+
+    .btn.active {
+        box-shadow: 0 0 0 0.125rem #f82f21;
+    }
+
+    .drop-wrapper {
+        position: relative;
+    }
+
+    .drop-menu {
+        display: none;
+        position: absolute;
+        width: 200px;
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px 0 #ffffff;
+        background-color: #ffffff;
+    }
+
+    .drop-menu.active {
+        display: block;
+    }
+
+    .dropdown {
+        top: 100%;
+        margin-top: 0.125rem;
+    }
+
+    .dropup {
+        bottom: 100%;
+        margin-bottom: 0.125rem;
+    }
+
+
+    .dropleft {
+        right: 100%;
+        top: 0%;
+        margin-right: 0.125rem;
+    }
+
+    .dropright {
+        left: 100%;
+        top: 0%;
+        margin-left: 0.125rem;
+    }
+
+    .drop-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #000000;
+    }
+
     </style>
     </head>
     
@@ -155,8 +285,8 @@
         <div class="section_box">
             <div class="titleBar">
                 <div class="titleBar Column">
-                    <img src="C:\Users\Baobabs\Desktop\Hi-Breed Web\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
-                    <h3 style="margin-top: 34%; font-family: 'Open Sans', sans-serif;">Welcome, Admin</h3>
+                    <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                    <h3>Welcome, Admin</h3>
                 </div>
                 <div class="titleBar Column" style="justify-content: center;" >
                     <main>
@@ -196,7 +326,7 @@
                     </main>
                 </div>
                 <div class="titleBar Column" style="justify-content:right;" >
-                    <img src="C:\Users\Baobabs\Desktop\Hi-Breed Web\HiBreed-WEBSITE\Images\LOGO.png" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover;">
+                    <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\LOGO.png" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover;">
                 </div>
             </div>
 
@@ -222,14 +352,35 @@
                 <!-- </nav> -->
             </div>
 
-            <div class="content">
-                <div class="active">
-                        
-                    <!-- <h1>
-                        ACTIVITY PAGE
-                    </h1> -->
+            <div class="search-bar">
 
-                    <table style="width: 90%; margin-top: 70px; margin-left: 50px;">
+                <div class="search-bar search">
+                <input id="basic-search" class="search_input" type="search" name="search" maxlength="100" placeholder="I am looking for..." required />
+                <button class="search_btn-submit" type="submit">Search</button>
+                </div>
+                
+                <div style="justify-content: center;"> 
+                    <div class="container">
+                        <div class="drop-wrapper">
+                            <button class="btn" data-target="#dropleft">Sort By</button>
+                            <div class="drop-menu dropleft" id="dropleft">
+                              <a href="#">ACTOR - Ascending</a>
+                              <a href="#">ACTOR - Descending</a>
+                              <a href="#">DATE - Ascending</a>
+                              <a href="#">DATE - Descending</a>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+            </div>
+
+           
+
+            <div class="content">
+
+                <div class="active">
+        
+                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
                         <tr>
                             <th>ACTOR</th>
                             <th>ACTIVITY</th>
@@ -251,7 +402,7 @@
                         USERS PAGE
                     </h1> -->
                 
-                    <table style="width: 90%; margin-top: 70px; margin-left: 50px;">
+                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
                         <tr>
                             <th>ROLE</th>
                             <th>NAME</th>
@@ -273,7 +424,7 @@
                         TRANSACTIONS PAGE
                     </h1> -->
                 
-                    <table style="width: 90%; margin-top: 70px; margin-left: 50px;">
+                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
                         <tr>
                             <th>ACTOR</th>
                             <th>TRANSACTION TYPE</th>
@@ -296,7 +447,7 @@
                     <!-- <h1>
                         QUESTIONS PAGE
                     </h1> -->
-                    <table style="width: 90%; margin-top: 70px; margin-left: 50px;">
+                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
                         <tr>
                             <th>AUTHOR</th>
                             <th>QUESTION TITLE</th>
@@ -318,7 +469,7 @@
                     <!-- <h1>
                         SYSTEM PAGE
                     </h1> -->
-                    <table style="width: 90%; margin-top: 70px; margin-left: 50px;">
+                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
                         <tr>
                             <th>ACTOR</th>
                             <th>ACTIVITY</th>
@@ -338,7 +489,7 @@
         </div>
     </body>
 
-    <script type="module">
+<script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
@@ -365,6 +516,28 @@
 
     <script>
 
+    const btns = document.querySelectorAll('.btn');
+    const dropMenus = document.querySelectorAll('.drop-menu');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            removeActive();
+            btn.classList.add('active');
+            document.querySelector(btn.dataset.target).classList.add('active');
+        })
+    })
+
+    const removeActive = () => {
+        btns.forEach(btn => btn.classList.remove('active'));
+        dropMenus.forEach(dropmenu => dropmenu.classList.remove('active'));
+    }
+
+    window.onclick = (e) => {
+        if (!e.target.matches('.btn')) {
+            removeActive()
+        }
+    }
+
     document.querySelectorAll('.topnav a')
     .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
 
@@ -383,5 +556,5 @@
         nav[n - 1].classList.add('active')
     }
 
-    </script>
+</script>
 </html>
