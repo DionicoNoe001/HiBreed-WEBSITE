@@ -179,6 +179,8 @@
         font-size: 14px;
         border: 0;
         border-radius: 10px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .search_btn-submit{
@@ -195,6 +197,8 @@
         transition: background-color 200ms ease-out;
         font-family: 'Open Sans', sans-serif;
         border-radius: 10px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
 
     }
     .search_btn-submit:hover {
@@ -204,77 +208,15 @@
 
     /* CSS for dropdown button */
 
-    .container{
-    display: flex;
-    justify-content: left;
-    }
-
-    .btn {
-        position: relative;
-        padding: 10px;
-        color: #eee;
-        font-size: 13px;
-        background-color: #fd6459;
-        border: 0;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        cursor: pointer;
-        z-index: 10;
-        transition: background-color 200ms ease-out;
-        font-family: 'Open Sans', sans-serif;
-        border-radius: 10px;
-    }
-
-    .btn.active {
-        box-shadow: 0 0 0 0.125rem #f82f21;
-    }
-
-    .drop-wrapper {
-        position: relative;
-    }
-
-    .drop-menu {
-        display: none;
-        position: absolute;
-        width: 200px;
-        border: 0;
-        border-radius: 10px;
-        box-shadow: 1px 1px 3px 0 #ffffff;
-        background-color: #ffffff;
-    }
-
-    .drop-menu.active {
-        display: block;
-    }
-
     .dropdown {
-        top: 100%;
-        margin-top: 0.125rem;
-    }
-
-    .dropup {
-        bottom: 100%;
-        margin-bottom: 0.125rem;
-    }
-
-
-    .dropleft {
-        right: 100%;
-        top: 0%;
-        margin-right: 0.125rem;
-    }
-
-    .dropright {
-        left: 100%;
-        top: 0%;
-        margin-left: 0.125rem;
-    }
-
-    .drop-menu a {
-        display: block;
-        padding: 0.5rem 1rem;
-        text-decoration: none;
-        color: #000000;
+        padding: 10px;
+        width: 200px;
+        color: #2b2a2a;
+        font-size: 14px;
+        border: 0;
+        border-radius: 10px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     </style>
@@ -355,22 +297,19 @@
             <div class="search-bar">
 
                 <div class="search-bar search">
-                <input id="basic-search" class="search_input" type="search" name="search" maxlength="100" placeholder="I am looking for..." required />
+                <input id="basic-search" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
                 <button class="search_btn-submit" type="submit">Search</button>
                 </div>
                 
-                <div style="justify-content: center;"> 
-                    <div class="container">
-                        <div class="drop-wrapper">
-                            <button class="btn" data-target="#dropleft">Sort By</button>
-                            <div class="drop-menu dropleft" id="dropleft">
-                              <a href="#">ACTOR - Ascending</a>
-                              <a href="#">ACTOR - Descending</a>
-                              <a href="#">DATE - Ascending</a>
-                              <a href="#">DATE - Descending</a>
-                            </div>
-                          </div>
-                        </div>
+                <div class="search-bar search"> 
+                        <select class="dropdown" id="sort" name="sort">
+                          <option value="" disabled selected>-- Select One --</option>
+                          <option value="1">NAME - ASCENDING</option>
+                          <option value="2">NAME - DESCENDING</option>
+                          <option value="3">DATE - ASCENDING</option>
+                          <option value="4">DATE - DESCENDING</option>
+                        </select>
+                    <button class="search_btn-submit" type="submit">SORT BY</button>
                 </div>
             </div>
 
@@ -515,28 +454,6 @@
       </script>
 
     <script>
-
-    const btns = document.querySelectorAll('.btn');
-    const dropMenus = document.querySelectorAll('.drop-menu');
-
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            removeActive();
-            btn.classList.add('active');
-            document.querySelector(btn.dataset.target).classList.add('active');
-        })
-    })
-
-    const removeActive = () => {
-        btns.forEach(btn => btn.classList.remove('active'));
-        dropMenus.forEach(dropmenu => dropmenu.classList.remove('active'));
-    }
-
-    window.onclick = (e) => {
-        if (!e.target.matches('.btn')) {
-            removeActive()
-        }
-    }
 
     document.querySelectorAll('.topnav a')
     .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
