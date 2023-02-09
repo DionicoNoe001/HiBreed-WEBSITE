@@ -149,14 +149,41 @@
         display: flex;
     }
 
-    table,th,td {
-        border: 1px solid;
-        border-collapse: collapse; 
+    /* CSS for table  */
+
+    table {
+        display: flexbox;
+        border: 0;
+        border-radius: 10px;
+        width: 90%; 
+        margin-top: 30px; 
+        margin-left: 50px;
+        background-color: #ffd2cf;
     }
     
+    table .thleftcorner {
+        border-top-left-radius: 10px;
+    }
+
+    table .thrightcorner {
+        border-top-right-radius: 10px;
+    }
+
     table th {
         text-align: center;
+        color: #eee;
+        background-color: #fd6459;
+        border: 0;
+        padding: 10px;
     }
+
+    table td {
+        border: 0;
+        padding: 10px;
+        background-color: #eee;
+        text-align: center;
+    }
+
 
     .search-bar {
         margin-top: 3%;
@@ -319,18 +346,18 @@
 
                 <div class="active">
         
-                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
+                    <table>
                         <tr>
-                            <th>ACTOR</th>
+                            <th class ="thleftcorner">ACTOR</th>
                             <th>ACTIVITY</th>
                             <th>DATE</th>
-                            <th>ACTION</th>
+                            <th class ="thrightcorner">ACTION</th>
                         </tr>
                         <tr>
                             <td>Juan Dela Cruz</td>
                             <td>Purchased Dog</td>
                             <td>10/30/2022</td>
-
+                            <td></td>
                         </tr>
                     </table>
 
@@ -341,18 +368,17 @@
                         USERS PAGE
                     </h1> -->
                 
-                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
+                    <table>
                         <tr>
-                            <th>ROLE</th>
+                            <th class ="thleftcorner">ROLE</th>
                             <th>NAME</th>
-                            <th>ACTION</th>
+                            <th class ="thrightcorner">ACTION</th>
                             
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
                             <td>Kemberly Nicole Tayong</td>
                             <td></td>
-
                         </tr>
                     </table>
 
@@ -363,13 +389,13 @@
                         TRANSACTIONS PAGE
                     </h1> -->
                 
-                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
+                    <table>
                         <tr>
-                            <th>ACTOR</th>
+                            <th class ="thleftcorner">ACTOR</th>
                             <th>TRANSACTION TYPE</th>
                             <th>SHOP</th>
                             <th>DATE</th>
-                            <th>ACTION</th>
+                            <th class ="thrightcorner">ACTION</th>
                         </tr>
                         <tr>
                             <td>Juan Dela Cruz</td>
@@ -386,13 +412,13 @@
                     <!-- <h1>
                         QUESTIONS PAGE
                     </h1> -->
-                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
+                    <table>
                         <tr>
-                            <th>AUTHOR</th>
+                            <th class ="thleftcorner">AUTHOR</th>
                             <th>QUESTION TITLE</th>
                             <th>ANSWERED BY</th>
                             <th>DATE POSTED</th>
-                            <th>ACTION</th>
+                            <th class ="thrightcorner">ACTION</th>
                         </tr>
                         <tr>
                             <td>Juan Dela Cruz</td>
@@ -408,10 +434,10 @@
                     <!-- <h1>
                         SYSTEM PAGE
                     </h1> -->
-                    <table style="width: 90%; margin-top: 30px; margin-left: 50px;">
+                    <table>
                         <tr>
-                            <th>PATCH NOTES</th>
-                            <th>SYSTEM REBOOT</th>
+                            <th class ="thleftcorner">PATCH NOTES</th>
+                            <th class ="thrightcorner">SYSTEM REBOOT</th>
                             
                         </tr>
                         <tr>
