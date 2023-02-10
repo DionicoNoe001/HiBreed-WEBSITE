@@ -346,18 +346,13 @@
                 <div class="active">
         
                     <table>
-                        <tr>
+                        <thead>
                             <th class ="thleftcorner">ACTOR</th>
                             <th>ACTIVITY</th>
                             <th>DATE</th>
                             <th class ="thrightcorner">ACTION</th>
-                        </tr>
-                        <tr>
-                            <td>Juan Dela Cruz</td>
-                            <td>Purchased Dog</td>
-                            <td>10/30/2022</td>
-                            <td></td>
-                        </tr>
+                        </thead>
+                        <tbody id="tbody1"></tbody>
                     </table>
 
                 </div>
@@ -474,14 +469,15 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-      </script>
 
-    <script>
+        import {getDatabase, ref, set, child, update, remove, onValue, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-    document.querySelectorAll('.topnav a')
-    .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+        const db = getDatabase();
 
-    function change(n) {
+        document.querySelectorAll('.topnav a')
+        .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+
+        function change(n) {
 
         let panels = document.querySelectorAll('main div')
         panels.forEach(p => p.classList.remove('active'))
@@ -496,5 +492,6 @@
         nav[n - 1].classList.add('active')
     }
 
-</script>
+    </script>
+
 </html>
