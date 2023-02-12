@@ -366,12 +366,14 @@
                         <tr>
                             <th class ="thleftcorner">ROLE</th>
                             <th>NAME</th>
+                            <th>STATUS</th>
                             <th class ="thrightcorner">ACTION</th>
                             
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
                             <td>Kemberly Nicole Tayong</td>
+                            <td>Verified</td>
                             <td></td>
                         </tr>
                     </table>
@@ -386,14 +388,14 @@
                     <table>
                         <tr>
                             <th class ="thleftcorner">ACTOR</th>
-                            <th>TRANSACTION TYPE</th>
+                            <th>TRANSACTION REF NO.</th>
                             <th>SHOP</th>
                             <th>DATE</th>
                             <th class ="thrightcorner">ACTION</th>
                         </tr>
                         <tr>
                             <td>Juan Dela Cruz</td>
-                            <td>Purchased Dog</td>
+                            <td>01</td>
                             <td>Kin Shop</td>
                             <td>10/30/2022</td>
                             <td></td>
@@ -474,6 +476,8 @@
 
         const db = getDatabase();
 
+        //-------- Functions for top Navbar changes --------//
+
         document.querySelectorAll('.topnav a')
         .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
 
@@ -491,6 +495,11 @@
         nav.forEach(x => x.classList.remove('active'))
         nav[n - 1].classList.add('active')
     }
+
+    //--------------- Filling the Table ----------------//
+
+    var userId = 0;
+    
 
     </script>
 
