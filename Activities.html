@@ -113,6 +113,10 @@
     .content div.active {
         display: block;
         width: 100%;
+        height: 550px;
+        overflow: auto; 
+        
+        
     }
     
     /* .content div.active h1 {
@@ -159,6 +163,9 @@
         margin-top: 30px; 
         margin-left: 50px;
         background-color: #ffd2cf;
+        border-collapse: separate;
+        position: fixed;
+        /* table-layout: fixed; */
     }
     
     table .thleftcorner {
@@ -170,20 +177,42 @@
     }
 
     table th {
+        position: sticky;
+        top: 0;
         text-align: center;
         color: #eee;
         background-color: #fd6459;
         border: 0;
         padding: 10px;
+        min-width: max-content;
     }
 
     table td {
         border: 0;
         padding: 10px;
         background-color: #eee;
-        text-align: center;
+        text-align: center; 
     }
 
+
+    table tbody {
+        /* display: block; */
+        padding: 10px;
+        background-color: #eee;
+        text-align: center;
+        min-height: 300px;
+        width: auto;
+        overflow: auto;
+    }
+
+    /* tbody td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px; 
+        
+    } */
+
+    /* CSS for searchbar */
     .search-bar {
         margin-top: 3%;
         margin-left: 50px;
@@ -345,7 +374,7 @@
 
                 <div class="active">
         
-                    <table>
+                    <table id="activityTable">
                         <thead>
                             <th class ="thleftcorner">ACTOR</th>
                             <th>ACTIVITY</th>
@@ -357,27 +386,23 @@
 
                 </div>
                 <div>
-                
                     <!-- <h1>
                         USERS PAGE
                     </h1> -->
-                
-                    <table>
-                        <tr>
-                            <th class ="thleftcorner">ROLE</th>
+                    <table id="userTable">
+                        <thead>
+                            <th class ="thleftcorner">ID NUMBER</th>
+                            <th>ROLE</th>
                             <th>NAME</th>
+                            <th>GENDER</th>
+                            <th>BIRTHDAY</th>
+                            <th>ADDRESS</th>
                             <th>STATUS</th>
                             <th class ="thrightcorner">ACTION</th>
-                            
-                        </tr>
-                        <tr>
-                            <td>Veterinarian</td>
-                            <td>Kemberly Nicole Tayong</td>
-                            <td>Verified</td>
-                            <td></td>
-                        </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                        </tbody>
                     </table>
-
                 </div>
                 <div>
                 
@@ -386,13 +411,13 @@
                     </h1> -->
                 
                     <table>
-                        <tr>
+                        <thead>
                             <th class ="thleftcorner">ACTOR</th>
                             <th>TRANSACTION REF NO.</th>
                             <th>SHOP</th>
                             <th>DATE</th>
                             <th class ="thrightcorner">ACTION</th>
-                        </tr>
+                        </thead>
                         <tr>
                             <td>Juan Dela Cruz</td>
                             <td>01</td>
@@ -409,20 +434,206 @@
                         QUESTIONS PAGE
                     </h1> -->
                     <table>
-                        <tr>
+                        <thead>
                             <th class ="thleftcorner">AUTHOR</th>
                             <th>QUESTION TITLE</th>
                             <th>ANSWERED BY</th>
                             <th>DATE POSTED</th>
                             <th class ="thrightcorner">ACTION</th>
-                        </tr>
-                        <tr>
-                            <td>Juan Dela Cruz</td>
-                            <td>Proper Age for studding?</td>
-                            <td>Dr. K.N Tayong</td>
-                            <td>10/30/2022</td>
-                            <td></td>
-                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Kim Dela Cruz</td>
+                                <td>Proper Age for studding?</td>
+                                <td>Dr. K.N Tayong</td>
+                                <td>10/30/2022</td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
                     </table>
 
                 </div>
@@ -431,11 +642,11 @@
                         SYSTEM PAGE
                     </h1> -->
                     <table>
-                        <tr>
+                        <thead>
                             <th class ="thleftcorner">PATCH NOTES</th>
                             <th class ="thrightcorner">SYSTEM REBOOT</th>
                             
-                        </tr>
+                        </thead>
                         <tr>
                             <td>---</td>
                             <td>----</td>
@@ -446,61 +657,114 @@
             </div>
 
         </div>
-    </body>
 
-<script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDRj-cw5P6tqIWMf5BBjM9-RmtszPP5dpc",
-          authDomain: "hi-breed-ca22b.firebaseapp.com",
-          databaseURL: "https://hi-breed-ca22b-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "hi-breed-ca22b",
-          storageBucket: "hi-breed-ca22b.appspot.com",
-          messagingSenderId: "689097818559",
-          appId: "1:689097818559:web:2e43df1060e2d917cbe10a",
-          measurementId: "G-F0NDE7VY71"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyDRj-cw5P6tqIWMf5BBjM9-RmtszPP5dpc",
+              authDomain: "hi-breed-ca22b.firebaseapp.com",
+              databaseURL: "https://hi-breed-ca22b-default-rtdb.asia-southeast1.firebasedatabase.app",
+              projectId: "hi-breed-ca22b",
+              storageBucket: "hi-breed-ca22b.appspot.com",
+              messagingSenderId: "689097818559",
+              appId: "1:689097818559:web:2e43df1060e2d917cbe10a",
+              measurementId: "G-F0NDE7VY71"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
 
-        import {getDatabase, ref, set, child, update, remove, onValue, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+            import {getFirestore, doc, getDoc, getDocs, onSnapshot, collection} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
-        const db = getDatabase();
+            const db = getFirestore();
 
-        //-------- Functions for top Navbar changes --------//
-
-        document.querySelectorAll('.topnav a')
-        .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
-
-        function change(n) {
-
-        let panels = document.querySelectorAll('main div')
-        panels.forEach(p => p.classList.remove('active'))
-        panels[n - 1].classList.add('active')
-
-        let contents = document.querySelectorAll('.content div')
-        contents.forEach(p => p.classList.remove('active'))
-        contents[n - 1].classList.add('active');
-
-        let nav = document.querySelectorAll('.topnav a')
-        nav.forEach(x => x.classList.remove('active'))
-        nav[n - 1].classList.add('active')
-    }
-
-    //--------------- Filling the Table ----------------//
-
-    var userId = 0;
+            //-------- Functions for top Navbar changes --------//
     
+            document.querySelectorAll('.topnav a')
+            .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+    
+            function change(n) {
+    
+            let panels = document.querySelectorAll('main div')
+            panels.forEach(p => p.classList.remove('active'))
+            panels[n - 1].classList.add('active')
+    
+            let contents = document.querySelectorAll('.content div')
+            contents.forEach(p => p.classList.remove('active'))
+            contents[n - 1].classList.add('active');
+    
+            let nav = document.querySelectorAll('.topnav a')
+            nav.forEach(x => x.classList.remove('active'))
+            nav[n - 1].classList.add('active')
+        }
+    
+        //--------------- Filling the Table ----------------//
 
-    </script>
+        //------- Method for User Table -------//
+
+        async function GetAllDataRealtime() {
+
+            const querySnapshot = await getDocs(collection(db,"User"));
+
+            const table = document.getElementById("userTableBody");
+
+            var data = [];
+
+            querySnapshot.forEach(doc => {
+
+                const idNo = doc.data().idNo;
+                const gender = doc.data().gender;
+                const birthday = doc.data().birth;
+                const address = doc.data().address;
+
+                const firstName = doc.data().firstName;
+                const middleName = doc.data().middleName;
+                const lastName = doc.data().lastName;
+                const fullName = [firstName, middleName, lastName].filter(Boolean).join(" ");
+
+                const role = doc.data().role.join(", ");
+
+                const row = table.insertRow();
+
+                const idCell = row.insertCell();
+                idCell.innerText = idNo;
+                
+                const roleCell = row.insertCell();
+                roleCell.innerText = role;
+
+                const nameCell = row.insertCell();
+                nameCell.innerText = fullName;
+
+                const genderCell = row.insertCell();
+                genderCell.innerText = gender;
+
+                const birthCell = row.insertCell();
+                birthCell.innerText = birthday;
+
+                const AddressCell = row.insertCell();
+                AddressCell.innerText = address;
+
+                const statusCell = row.insertCell();
+                statusCell.innerText = doc.data().status;
+                const actionCell = row.insertCell();
+                actionCell.innerText = "";
+
+            });
+
+            AddAllItemsToTable(data);
+        }
+            window.onload = GetAllDataRealtime;
+
+          </script>
+
+    </body>
 
 </html>
