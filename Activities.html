@@ -804,6 +804,7 @@
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
             import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+            
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
           
@@ -824,7 +825,7 @@
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
 
-            import {getFirestore, doc, getDoc, getDocs, onSnapshot, collection, deleteDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+            import { getFirestore, doc, getDoc, getDocs, onSnapshot, collection, deleteDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             const db = getFirestore();
 
@@ -847,7 +848,7 @@
             nav.forEach(x => x.classList.remove('active'))
             nav[n - 1].classList.add('active')
         }
-    
+
         //--------------- Filling the Table ----------------//
 
         //------- Method for User Table -------//
@@ -909,17 +910,28 @@
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "deleteBtn";
                 deleteButton.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
-        
+                
+                deleteButton.onclick = async function() {
+                  try {
+                    await deleteDoc(doc.ref);
+                    window.alert("Document successfully deleted!");
+                    const row = deleteButton.closest("tr");
+                    row.remove();
+                  } catch (error) {
+                    console.error("Error removing document: ", error);
+                  }
+                };
+
                 actionCell.appendChild(deleteButton);
                 
+
+
             });
 
             AddAllItemsToTable(data);
         }
 
             window.onload = GetAllDataRealtime;
-
-
 
           </script>
 
