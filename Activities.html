@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <title>Activity Page</title>
 
-
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" > -->
     <style> @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@500&display=swap'); </style>
-    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script> -->
-    
+        
 </head>
 
 <style>
@@ -121,11 +116,6 @@
         
     }
     
-    /* .content div.active h1 {
-        display: flex;
-        justify-content: center;
-    } */
-
     main {
         block-size: 100px;
         display: flex;
@@ -276,7 +266,7 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         cursor: pointer;
-        z-index: 10;
+        z-index: 1;
         transition: background-color 200ms ease-out;
         font-family: 'Open Sans', sans-serif;
         border-radius: 10px;
@@ -336,12 +326,69 @@
         color: rgb(255, 255, 255);
     }
 
+    /* CSS for modal */
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 2; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        animation: fadein .3s;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%; /* Could be more or less, depending on screen size */
+    }
+    
+    /* The Close Button */
+    .close {
+        display: flex;
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        justify-content: right;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        
+    }
+
+    .labs {
+        display: inline-block;
+        width: 20%;
+    }
+
     </style>
     </head>
     
     <body>
 
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/23f4928225.js" crossorigin="anonymous"></script>
 
         <div class="section">
@@ -415,6 +462,45 @@
                 <!-- </nav> -->
             </div>
 
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h4>Edit Information: </h4>
+                  <hr style="border: solid 1px #e2dfdf; margin: 0;">
+                    <div class="modal-body">
+                       <label class="labs">ID No: </label>
+                       <label id="idNoLabel"></label>
+                       <br>
+                       <label class="labs">First Name: </label>
+                       <label id="firstNameLabel"></label>
+                       <br>
+                       <label class="labs">Middle Name: </label>
+                       <label id="middleNameLabel"></label>
+                       <br>
+                       <label class="labs">Last Name: </label>
+                       <label id="lastNameLabel"></label>
+                       <br>
+                       <label class="labs">Gender: </label>
+                       <label id="genderLabel"></label>
+                       <br>
+                       <label class="labs">Birthdate: </label>
+                       <label id="birthdayLabel"></label>
+                       <br>
+                       <label class="labs">role: </label>
+                       <label id="roleLabel"></label>
+                       <br>
+                       <label class="labs">status: </label>
+                       <input type="textbox" id="statusInput">
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button id="closeModalBtn" type="button" class="btn btn-secondary">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+              </div>
+
             <div class="search-bar">
 
                 <div class="search-bar search">
@@ -433,8 +519,6 @@
                     <button class="search_btn-submit" type="submit"><i class="fa-solid fa-sort"></i> SORT BY</button>
                 </div>
             </div>
-
-           
 
             <div class="content">
 
@@ -798,7 +882,7 @@
             </div>
 
         </div>
-
+          
         <script type="module">
 
             // Import the functions you need from the SDKs you need
@@ -849,11 +933,28 @@
             nav[n - 1].classList.add('active')
         }
 
+        //--------------- Initializing labelboxes in Modal ------------//
+
+            var idNoLabel = document.getElementById("idNoLabel");
+            var firstNameLabel = document.getElementById("firstNameLabel");
+            var middleNameLabel = document.getElementById("middleNameLabel");
+            var lastNameLabel = document.getElementById("lastNameLabel");
+            var genderLabel = document.getElementById("genderLabel");
+            var birthdayLabel = document.getElementById("birthdayLabel");
+            var roleLabel = document.getElementById("roleLabel");
+            var statusInput = document.getElementById("statusInput");
+
         //--------------- Filling the Table ----------------//
 
         //------- Method for User Table -------//
 
         async function GetAllDataRealtime() {
+
+            var closeBtn = document.getElementById("closeModalBtn");
+
+            var modal = document.getElementById("myModal");
+
+            var span = document.getElementsByClassName("close")[0];
 
             const querySnapshot = await getDocs(collection(db,"User"));
 
@@ -874,6 +975,7 @@
                 const fullName = [firstName, middleName, lastName].filter(Boolean).join(" ");
 
                 const role = doc.data().role.join(", ");
+                const status = doc.data().status;
 
                 const row = table.insertRow();
 
@@ -896,7 +998,7 @@
                 AddressCell.innerText = address;
 
                 const statusCell = row.insertCell();
-                statusCell.innerText = doc.data().status;
+                statusCell.innerText = status;
 
                 const actionCell = row.insertCell();
 
@@ -904,6 +1006,37 @@
                 editButton.className = "editBtn";
                 editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
                 editButton.style.marginRight = "5px";
+
+                editButton.onclick = async function() {
+                    modal.style.display = "block";
+
+                    idNoLabel.innerText = idNo;
+                    firstNameLabel.innerText = firstName;
+                    middleNameLabel.innerText = middleName;
+                    lastNameLabel.innerText = lastName;
+                    genderLabel.innerText = gender;
+                    birthdayLabel.innerText = birthday;
+
+                    roleLabel.innerText = role;
+
+                    statusInput.value = status;
+
+
+                }
+                
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+
+                window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                    }
+                }
+
+                closeBtn.onclick = function() {
+                    modal.style.display = "none";
+                }
 
                 actionCell.appendChild(editButton);
 
@@ -913,10 +1046,14 @@
                 
                 deleteButton.onclick = async function() {
                   try {
-                    await deleteDoc(doc.ref);
-                    window.alert("Document successfully deleted!");
-                    const row = deleteButton.closest("tr");
-                    row.remove();
+                    window.confirm("Are you sure you want to delete this document?");
+                    if(confirm == true)
+                    {
+                        await deleteDoc(doc.ref);
+                        window.alert("Document successfully deleted!");
+                        const row = deleteButton.closest("tr");
+                        row.remove();
+                    }
                   } catch (error) {
                     console.error("Error removing document: ", error);
                   }
@@ -930,6 +1067,7 @@
 
             AddAllItemsToTable(data);
         }
+
 
             window.onload = GetAllDataRealtime;
 
