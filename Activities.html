@@ -403,6 +403,13 @@
                         <div class="active">
                         
                             <h1>
+                                HOMEPAGE
+                            </h1>
+                        
+                        </div>
+                        <div>
+                        
+                            <h1>
                                 ACTIVITY PAGE
                             </h1>
                         
@@ -418,6 +425,13 @@
                         
                             <h1>
                                 TRANSACTIONS PAGE
+                            </h1>
+                        
+                        </div>
+                        <div>
+                        
+                            <h1>
+                                SHOPS PAGE
                             </h1>
                         
                         </div>
@@ -444,25 +458,25 @@
                 <!-- <nav class="navContent"> -->
                 <!-- <ul class="ulContent">
                     <li> -->
-                        <a class="active" data-id="1">ACTIVITIES</a>
-                    <!-- </li>
-                    <li> -->
-                        <a data-id="2">USERS</a>
-                    <!-- </li>
-                    <li> -->
-                        <a data-id="3">TRANSACTIONS</a>
-                    <!-- </li>
-                    <li> -->
-                        <a data-id="4">QUESTIONS</a>
-                    <!-- </li>
-                    <li> -->
-                        <a data-id="5">SYSTEM</a>
+                        <a class="active" data-id="1">HOMEPAGE</a>
+                        
+                        <a data-id="2">ACTIVITIES</a>
+                    
+                        <a data-id="3">USERS</a>
+                    
+                        <a data-id="4">TRANSACTIONS</a>
+                    
+                        <a data-id="5">SHOPS</a>
+
+                        <a data-id="6">QUESTIONS</a>
+                    
+                        <a data-id="7">SYSTEM</a>
                     <!-- </li>
                 </ul> -->
                 <!-- </nav> -->
             </div>
 
-            <!-- Modal -->
+            <!-- Modal for USERS tab-->
             <div id="myModal" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
@@ -492,7 +506,14 @@
                        <br>
                        <label class="labs">status: </label>
                        <input type="textbox" id="statusInput">
-                       <!-- add -->
+                    
+                       <table id="userTableModal">
+                        <thead>
+                                
+                        </thead>
+                        <tbody id="userTableModalBody"></tbody>
+                       </table>
+
                     </div>
                     <div class="modal-footer">
                         <button id="closeModalBtn" type="button" class="btn btn-secondary">Close</button>
@@ -522,8 +543,27 @@
 
             <div class="content">
 
+                <!-- DASHBOARD -->
                 <div class="active">
         
+                    <section class="outer-wrapper">
+                        <section class="table-wrapper">
+                            <H1>WELCOME TO HI-BREED ADMIN SYSTEM</H1>
+                            <!-- <table id="activityTable">
+                                <thead>
+                                    <th class ="thleftcorner">ACTOR</th>
+                                    <th>ACTIVITY</th>
+                                    <th>DATE</th>
+                                    <th class ="thrightcorner">ACTION</th>
+                                </thead>
+                                <tbody id="tbody1"></tbody>
+                            </table> -->
+                        </section>
+                    </section>
+                </div>
+
+                <!-- ACTIVITIES PAGE -->
+                <div>
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
                             <table id="activityTable">
@@ -591,6 +631,36 @@
                     </section>
 
                 </div>
+
+                <div>
+                    <!-- <h1>
+                        SHOP PAGE
+                    </h1> -->
+                    <section class="outer-wrapper">
+                        <section class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <th class ="thleftcorner">ID NUMBER</th>
+                                    <th>SHOP/KENNEL NAME</th>
+                                    <th>SHOP OWNER ID</th>
+                                    <th>DATE CREATED</th>
+                                    <th class ="thrightcorner">ACTION</th>
+
+
+                                </thead>
+                                <tr>
+                                    <td>---</td>
+                                    <td>----</td>
+                                    <td>---</td>
+                                    <td>----</td>
+                                    <td>---</td>
+
+                                </tr>
+                            </table>
+                        </section>
+                    </section>
+                </div>
+
                 <div>
                 
                     <!-- <h1>
