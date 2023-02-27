@@ -396,7 +396,9 @@
             <div class="titleBar">
                 <div class="titleBar Column">
                     <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
-                    <h3>Welcome, Admin</h3>
+
+                    <h3>Welcome, <p style="display:inline-flex" id="adminName"></p> </h3>
+                    
                 </div>
                 <div class="titleBar Column" style="justify-content: center;" >
                     <main>
@@ -640,10 +642,9 @@
                         <section class="table-wrapper">
                             <table>
                                 <thead>
-                                    <th class ="thleftcorner">ID NUMBER</th>
-                                    <th>SHOP/KENNEL NAME</th>
-                                    <th>SHOP OWNER ID</th>
-                                    <th>DATE CREATED</th>
+                                    <th class ="thleftcorner">OWNER ID NO.</th>
+                                    <th>SHOP NAME</th>
+                                    <th>STATUS</th>
                                     <th class ="thrightcorner">ACTION</th>
 
 
@@ -653,7 +654,6 @@
                                     <td>----</td>
                                     <td>---</td>
                                     <td>----</td>
-                                    <td>---</td>
 
                                 </tr>
                             </table>
@@ -988,7 +988,7 @@
             document.querySelectorAll('.topnav a')
             .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
     
-            function change(n) {
+        function change(n) {
     
             let panels = document.querySelectorAll('main div')
             panels.forEach(p => p.classList.remove('active'))
@@ -1002,6 +1002,26 @@
             nav.forEach(x => x.classList.remove('active'))
             nav[n - 1].classList.add('active')
         }
+
+        // -------- Functions for changing admin name -------- //
+        
+        async function getAdminName(){
+            const inputValueText = document.getElementById('adminName');
+            const inputValue = localStorage.getItem('inputValue');
+            // console.log(inputValue);
+            
+            const querySnapshot1 = await getDocs(collection(db,"Admin"));
+
+            querySnapshot1.forEach(doc => {
+
+                if (inputValue === doc.data().username){
+                    inputValueText.innerText = doc.data().firstName;
+                }
+
+            })
+        }
+
+        getAdminName();
 
         //--------------- Initializing labelboxes in Modal ------------//
 
@@ -1137,7 +1157,6 @@
 
             AddAllItemsToTable(data);
         }
-
 
             window.onload = GetAllDataRealtime;
 

@@ -142,7 +142,7 @@
 					<div>
 						<h3>Welcome back,</h3>
 						<input type="text" placeholder="USERNAME" id="ID">
-						<input type="password" placeholder="PASSWORD" id="Pass" onkeypress="enterKeyPressed(event)">
+						<input type="password" placeholder="PASSWORD" id="Pass">
 						<button class="submit" id="Btn" >LOGIN</button>
 					</div>
 				</div>
@@ -158,30 +158,94 @@
 	</section>
     </body>
 
-  <script>
+  <script type="module">
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+            
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyDRj-cw5P6tqIWMf5BBjM9-RmtszPP5dpc",
+              authDomain: "hi-breed-ca22b.firebaseapp.com",
+              databaseURL: "https://hi-breed-ca22b-default-rtdb.asia-southeast1.firebasedatabase.app",
+              projectId: "hi-breed-ca22b",
+              storageBucket: "hi-breed-ca22b.appspot.com",
+              messagingSenderId: "689097818559",
+              appId: "1:689097818559:web:2e43df1060e2d917cbe10a",
+              measurementId: "G-F0NDE7VY71"
+            };
+          
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const analytics = getAnalytics(app);
+          import { getFirestore, doc, getDoc, getDocs, where, onSnapshot, collection, deleteDoc, query} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+          const db = getFirestore();
+
+
+    //----- login Button function ------//
+
+    const adminCollection = collection(db, "Admin");
+
+    Btn.addEventListener('click', async (e) => {
+    e.preventDefault();
+      
+    const userName = document.getElementById("ID").value;
+    const userPassword = document.getElementById("Pass").value;  
+
+    localStorage.setItem('inputValue', userName);
+    // console.log(localStorage.getItem('inputValue'));
+
+    // Query the Firestore collection for the entered username and password
+    const adminQuerySnapshot = await getDocs(
+      query(adminCollection, where("username", "==", userName), where("password", "==", userPassword))
+    );
+      
+    // If there is a matching admin user, redirect to the activities page
+    if (!adminQuerySnapshot.empty) {
+      
+       location.href="file:///C:/Users/noeco/OneDrive/Desktop/HiBreed/HiBreed-WEBSITE/Activities.html";
     
-  Btn.addEventListener('click', (e) => {
-
-	var userEmail = document.getElementById("ID").value;
-  var userPassword = document.getElementById("Pass").value;
-
-    if(userEmail == "admin" && userPassword == "12345"){
-      location.href="file:///C:/Users/noeco/OneDrive/Desktop/HiBreed/HiBreed-WEBSITE/Activities.html";
+    } else {
+      alert("Invalid username or password");
     }
+
+  });
+
+  // ----- (Enter) keypress function in login ------ //
+  const userNameInput = document.getElementById("ID");
+  const userPasswordInput = document.getElementById("Pass");
+
+  userPasswordInput.addEventListener("keypress", enterKeyPressed);
+  userNameInput.addEventListener("keypress", enterKeyPressed);
+
+    async function enterKeyPressed(event) {
+      if (event.keyCode !== 13) {
+        return;
+      }
     
-  })
-
-  function enterKeyPressed(event) {
+      const userName = document.getElementById("ID").value;
+      const userPassword = document.getElementById("Pass").value;
     
-  var userEmail = document.getElementById("ID").value;
-  var userPassword = document.getElementById("Pass").value;
+      localStorage.setItem('inputValue', userName);
 
-    if( userEmail == "admin" && userPassword == "12345" && event.keyCode == 13) {
+      const adminCollection = collection(db, "Admin");
+      const adminQuerySnapshot = await getDocs(
+        query(adminCollection, where("username", "==", userName), where("password", "==", userPassword))
+      );
+    
+      if (adminQuerySnapshot.empty) {
+        alert("Incorrect username or password");
+        return;
+      }
 
-      location.href="file:///C:/Users/noeco/OneDrive/Desktop/HiBreed/HiBreed-WEBSITE/Activities.html";
-
+      // If there is an admin user with the entered username and password, redirect to Activities.html
+      location.href = "file:///C:/Users/noeco/OneDrive/Desktop/HiBreed/HiBreed-WEBSITE/Activities.html";
     }
-  }
 
   </script>
 
