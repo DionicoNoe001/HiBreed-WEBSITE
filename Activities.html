@@ -379,6 +379,7 @@
     .labs {
         display: inline-block;
         width: 20%;
+        font-family: 'Open Sans', sans-serif;
     }
 
     </style>
@@ -443,6 +444,14 @@
                                 QUESTIONS PAGE
                             </h1>
                         </div>
+
+                        <div>
+                            <h1>
+                                PROFILE PAGE
+                            </h1>
+     
+                        </div>
+
                         <div>
                             <h1>
                                 SYSTEM PAGE
@@ -472,7 +481,9 @@
 
                         <a data-id="6">QUESTIONS</a>
                     
-                        <a data-id="7">SYSTEM</a>
+                        <a data-id="7">PROFILE</a>
+
+                        <a data-id="8">SYSTEM</a>
                     <!-- </li>
                 </ul> -->
                 <!-- </nav> -->
@@ -482,32 +493,36 @@
             <div id="myModal" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <h4>Edit Information: </h4>
+                  <h4 style="font-family: 'Open Sans', sans-serif;">Edit Information: </h4>
                   <hr style="border: solid 1px #e2dfdf; margin: 0;">
                     <div class="modal-body">
                        <label class="labs">ID No: </label>
-                       <label id="idNoLabel"></label>
+                       <label id="idNoLabel" class="labs"></label>
                        <br>
                        <label class="labs">First Name: </label>
-                       <label id="firstNameLabel"></label>
+                       <label id="firstNameLabel" class="labs"></label>
                        <br>
                        <label class="labs">Middle Name: </label>
-                       <label id="middleNameLabel"></label>
+                       <label id="middleNameLabel" class="labs" ></label>
                        <br>
                        <label class="labs">Last Name: </label>
-                       <label id="lastNameLabel"></label>
+                       <label id="lastNameLabel" class="labs"></label>
                        <br>
                        <label class="labs">Gender: </label>
-                       <label id="genderLabel"></label>
+                       <label id="genderLabel" class="labs"></label>
                        <br>
                        <label class="labs">Birthdate: </label>
-                       <label id="birthdayLabel"></label>
+                       <label id="birthdayLabel" class="labs"></label>
                        <br>
                        <label class="labs">role: </label>
-                       <label id="roleLabel"></label>
+                       <label id="roleLabel" style="font-family: 'Open Sans', sans-serif;"></label>
                        <br>
                        <label class="labs">status: </label>
-                       <input type="textbox" id="statusInput">
+                       <select name="status" id="statusInput" class="labs">
+                            <option value="pending">pending</option>
+                            <option value="verified">verified</option>
+                            <option value="suspended">suspended</option>
+                        </select>
                     
                        <table id="userTableModal">
                         <thead>
@@ -518,8 +533,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button id="closeModalBtn" type="button" class="btn btn-secondary">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button id="closeModalBtn" type="button" class="btn btn-secondary" style="font-family: 'Open Sans', sans-serif;">Close</button>
+                        <button id="saveModalBtn" type="button" class="btn btn-primary" style="font-family: 'Open Sans', sans-serif;">Save changes</button>
                     </div>
                 </div>
               </div>
@@ -930,6 +945,24 @@
                 </div>
                 <div>
                     <!-- <h1>
+                        PROFILE PAGE
+                    </h1> -->
+                    <section class="outer-wrapper">
+                        <section class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <th style="border-top-left-radius: 10px; border-top-right-radius: 10px;">ADMIN PROFILE</th>
+                                </thead>
+                                <tr>
+                                    <td>---</td>
+
+                                </tr>
+                            </table>
+                        </section>
+                    </section>
+                </div>
+                <div>
+                    <!-- <h1>
                         SYSTEM PAGE
                     </h1> -->
                     <section class="outer-wrapper">
@@ -979,7 +1012,7 @@
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
 
-            import { getFirestore, doc, getDoc, getDocs, onSnapshot, collection, deleteDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+            import { getFirestore, doc, getDoc, getDocs, onSnapshot, collection, deleteDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             const db = getFirestore();
 
@@ -1023,6 +1056,21 @@
 
         getAdminName();
 
+        // -------------- function for save Changes Btn ------------- //
+
+        async function saveChanges(){
+            const userId = document.getElementById("idNoLabel").innerText;
+            const newStatus = document.getElementById("statusInput").value;
+
+            const userRef = doc(db, "User", userId);
+            await updateDoc(userRef, {
+              status: newStatus
+            });
+
+            window.alert("Status updated successfully");
+            location.reload();
+        }
+
         //--------------- Initializing labelboxes in Modal ------------//
 
             var idNoLabel = document.getElementById("idNoLabel");
@@ -1039,6 +1087,8 @@
         //------- Method for User Table -------//
 
         async function GetAllDataRealtime() {
+
+            var saveChangesBtn = document.getElementById("saveModalBtn");
 
             var closeBtn = document.getElementById("closeModalBtn");
 
@@ -1127,6 +1177,8 @@
                 closeBtn.onclick = function() {
                     modal.style.display = "none";
                 }
+
+                saveChangesBtn.onclick = saveChanges;
 
                 actionCell.appendChild(editButton);
 
