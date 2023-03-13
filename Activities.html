@@ -949,15 +949,60 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <th style="border-top-left-radius: 10px; border-top-right-radius: 10px;">ADMIN PROFILE</th>
-                                </thead>
-                                <tr>
-                                    <td>---</td>
+                            <section style="display: inline-block; background-color: #fffaed; border-radius: 10px;">
+                                <section style="display: flex; width: 1500px; justify-content: center;">
+                                    <h3 style="margin-top: 20px;">Profile Information</h3>
+                                </section>
+                                <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 0; margin-right: 10px; margin-left: 10px; ">
+                                <section style="display: inline-flex">
+                                    <section style="display: flex; justify-content: right; width: 40%; margin-right: 10px;">
+                                        <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                                    </section>
+                                    <section style="display: inline; width: 60%">
+                                        <label class="labs">ID No: </label>
+                                        <label id="adminIdNoLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">First Name: </label>
+                                        <label id="adminFirstNameLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">Middle Name: </label>
+                                        <label id="adminMiddleNameLabel" class="labs" ></label>
+                                        <br>
+                                        <label class="labs">Last Name: </label>
+                                        <label id="adminLastNameLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">Gender: </label>
+                                        <label id="adminGenderLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">Birthdate: </label>
+                                        <label id="adminBirthdayLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">position: </label>
+                                        <label id="adminPositionLabel" style="font-family: 'Open Sans', sans-serif;"></label>
+                                        <br>
+                                        <label class="labs">Date Hired: </label>
+                                        <label id="adminDateHiredLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">Username: </label>
+                                        <input id="adminUsernameLabel" class="labs"></label>
+                                        <br>
+                                        <label class="labs">Password: </label>
+                                        <input id="adminPasswordLabel" class="labs"></label>
+                                
+                                        <table id="userTableModal">
+                                        <thead>
 
-                                </tr>
-                            </table>
+                                        </thead>
+                                        <tbody id="userTableModalBody"></tbody>
+                                        </table>
+                                    </section>
+                                </section>
+                                <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+                                    <section style="display: flex; width: 1500px; justify-content: center;">
+                                        <button id="saveModalBtn" type="button" class="btn btn-primary" style="font-family: 'Open Sans', sans-serif;">Save changes</button>                
+                                    </section>
+                                <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+                            </section>
                         </section>
                     </section>
                 </div>
@@ -1070,8 +1115,7 @@
             window.alert("Status updated successfully");
             location.reload();
         }
-
-        // add methods please 2 //
+       
         //--------------- Initializing labelboxes in Modal ------------//
 
             var idNoLabel = document.getElementById("idNoLabel");
@@ -1210,6 +1254,7 @@
 
             AddAllItemsToTable(data);
         }
+
 
             window.onload = GetAllDataRealtime;
 
