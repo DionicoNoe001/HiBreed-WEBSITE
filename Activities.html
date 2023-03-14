@@ -383,6 +383,25 @@
         font-family: 'Open Sans', sans-serif;
     }
 
+    /* css for profile inputs */
+    .prof_input {
+        padding: 10px;
+        width: 250px;
+        color: #000000;
+        font-size: 14px;
+        border: solid #c7c7c7 1px;
+        border-radius: 10px;
+        
+    }
+
+    .prof_label {
+        padding: 10px;
+        width: 250px;
+        color: #000000;
+        font-size: 14px;
+        border: solid #c7c7c7 1px;
+        border-radius: 10px;
+    }
     </style>
     </head>
     
@@ -956,40 +975,39 @@
                                 </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 0; margin-right: 10px; margin-left: 10px; ">
                                 <section style="display: inline-flex">
-                                    <section style="display: flex; justify-content: right; width: 950px; margin-right: 10px;">
+                                    <section style="display: flex; justify-content: right; width: 600px; margin-right: 10px;">
                                         <img id="profilePic" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
                                     </section>
-                                    <section style="display: inline; width: 60%">
-                                        <label class="labs">ID No: </label>
-                                        <label id="adminIdNoLabel" class="labs"></label>
+                                    <section style="display: inline; width: 800px">
+                                        <label class="labs" style="width:10%">ID No: </label>
+                                        <label id="adminIdNoLabel" class="prof_label"></label>
                                         <br>
-                                        <label class="labs">First Name: </label>
-                                        <input id="adminFirstNameLabel" class="labs"></label>
+                                        <label class="labs" style="width:32%">First Name: </label>
+                                        <label class="labs" style="width: 110px">Middle Name: </label>
                                         <br>
-                                        <label class="labs">Middle Name: </label>
-                                        <input id="adminMiddleNameLabel" class="labs" ></label>
+                                        <input id="adminFirstNameLabel" class="prof_input" style="margin-right: 5px; margin-bottom: 5px;"></label>
+                                        <input id="adminMiddleNameLabel" class="prof_input" style="margin-bottom: 5px;" ></label>
                                         <br>
-                                        <label class="labs">Last Name: </label>
-                                        <input id="adminLastNameLabel" class="labs"></label>
-                                        <br>
+                                        <label class="labs" style="width:32%">Last Name: </label>
                                         <label class="labs">Gender: </label>
-                                        <input id="adminGenderLabel" class="labs"></label>
-                                        <br>
                                         <label class="labs">Birthdate: </label>
-                                        <input id="adminBirthdayLabel" class="labs"></label>
                                         <br>
-                                        <label class="labs">position: </label>
-                                        <label id="adminPositionLabel" style="font-family: 'Open Sans', sans-serif;"></label>
+                                        <input id="adminLastNameLabel" class="prof_input" style="margin-right: 5px; margin-bottom: 5px;"></label>
+                                        <input id="adminGenderLabel" class="prof_input" style="margin-right: 5px; width: 150px;"></label>
+                                        <input id="adminBirthdayLabel" class="prof_input" style="width: 150px;"></label>                                 
                                         <br>
-                                        <label class="labs">Date Hired: </label>
-                                        <label id="adminDateHiredLabel" class="labs"></label>
+                                        <label class="labs" style="width:32%">Position: </label>
+                                        <label class="labs" style="width:100px;">Date Hired: </label>
                                         <br>
-                                        <label class="labs">Username: </label>
-                                        <input id="adminUsernameLabel" class="labs"></label>
+                                        <label id="adminPositionLabel" class="prof_label" style="font-family: 'Open Sans', sans-serif; margin-right: 5px;"></label>
+                                        <label id="adminDateHiredLabel" class="prof_label" style="width: 150px;"></label>
                                         <br>
-                                        <label class="labs">Password: </label>
-                                        <input id="adminPasswordLabel" class="labs"></label>
-                                
+                                        <label class="labs" style="width:32%;">Username: </label>
+                                        <label class="labs" style="width:100px;">Password: </label>
+                                        <br>
+                                        <input id="adminUsernameLabel" class="prof_input" style="margin-right: 5px;"></label>
+                                        <input id="adminPasswordLabel" class="prof_input"></label>
+
                                     </section>
                                 </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
