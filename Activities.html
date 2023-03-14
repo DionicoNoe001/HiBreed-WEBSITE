@@ -143,6 +143,7 @@
         width: 150px;
         height: 150px;
         display: flex;
+        border-radius: 100px;
     }
 
     /* CSS for table  */
@@ -396,7 +397,7 @@
         <div class="section_box">
             <div class="titleBar">
                 <div class="titleBar Column">
-                    <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                    <img id="profilePicMain" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
 
                     <h3>Welcome, <p style="display:inline-flex" id="adminName"></p> </h3>
                     
@@ -955,27 +956,27 @@
                                 </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 0; margin-right: 10px; margin-left: 10px; ">
                                 <section style="display: inline-flex">
-                                    <section style="display: flex; justify-content: right; width: 40%; margin-right: 10px;">
-                                        <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                                    <section style="display: flex; justify-content: right; width: 950px; margin-right: 10px;">
+                                        <img id="profilePic" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
                                     </section>
                                     <section style="display: inline; width: 60%">
                                         <label class="labs">ID No: </label>
                                         <label id="adminIdNoLabel" class="labs"></label>
                                         <br>
                                         <label class="labs">First Name: </label>
-                                        <label id="adminFirstNameLabel" class="labs"></label>
+                                        <input id="adminFirstNameLabel" class="labs"></label>
                                         <br>
                                         <label class="labs">Middle Name: </label>
-                                        <label id="adminMiddleNameLabel" class="labs" ></label>
+                                        <input id="adminMiddleNameLabel" class="labs" ></label>
                                         <br>
                                         <label class="labs">Last Name: </label>
-                                        <label id="adminLastNameLabel" class="labs"></label>
+                                        <input id="adminLastNameLabel" class="labs"></label>
                                         <br>
                                         <label class="labs">Gender: </label>
-                                        <label id="adminGenderLabel" class="labs"></label>
+                                        <input id="adminGenderLabel" class="labs"></label>
                                         <br>
                                         <label class="labs">Birthdate: </label>
-                                        <label id="adminBirthdayLabel" class="labs"></label>
+                                        <input id="adminBirthdayLabel" class="labs"></label>
                                         <br>
                                         <label class="labs">position: </label>
                                         <label id="adminPositionLabel" style="font-family: 'Open Sans', sans-serif;"></label>
@@ -989,17 +990,11 @@
                                         <label class="labs">Password: </label>
                                         <input id="adminPasswordLabel" class="labs"></label>
                                 
-                                        <table id="userTableModal">
-                                        <thead>
-
-                                        </thead>
-                                        <tbody id="userTableModalBody"></tbody>
-                                        </table>
                                     </section>
                                 </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
                                     <section style="display: flex; width: 1500px; justify-content: center;">
-                                        <button id="saveModalBtn" type="button" class="btn btn-primary" style="font-family: 'Open Sans', sans-serif;">Save changes</button>                
+                                        <button id="updateProfileBtn" type="button" class="btn btn-primary" style="font-family: 'Open Sans', sans-serif;">Update Info</button>                
                                     </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
                             </section>
@@ -1081,25 +1076,85 @@
             nav[n - 1].classList.add('active')
         }
 
-        // -------- Functions for changing admin name -------- //
+        // ------------- function for update Info Btn --------- //
+
+        async function updateInfo(){
+            const adminId = document.getElementById("adminIdNoLabel").innerText;
+            const newFirstName = document.getElementById("adminFirstNameLabel").value;
+            const newMiddleName = document.getElementById("adminMiddleNameLabel").value;
+            const newLastName = document.getElementById("adminLastNameLabel").value;
+            const newGender = document.getElementById("adminGenderLabel").value;
+            const newBirthday = document.getElementById("adminBirthdayLabel").value;
+            const newUsername = document.getElementById("adminUsernameLabel").value;
+            const newPassword = document.getElementById("adminPasswordLabel").value;
+
+            const adminRef = doc(db, "Admin", adminId);
+            await updateDoc(adminRef, {
+
+                firstName: newFirstName,
+                middleName: newMiddleName,
+                lastName: newLastName,
+                gender: newGender,
+                birthdate: newBirthday,
+                username: newUsername,
+                password: newPassword
+
+            });
+            window.alert("Profile Information updated Successfully");
+            location.reload();
+        }
+
+        // -------- Functions for changing admin info -------- //
         
-        async function getAdminName(){
+        async function getAdminInfo(){
+
             const inputValueText = document.getElementById('adminName');
             const inputValue = localStorage.getItem('inputValue');
-            // console.log(inputValue);
-            
+
+            const updateProfile = document.getElementById("updateProfileBtn");
+
             const querySnapshot1 = await getDocs(collection(db,"Admin"));
 
             querySnapshot1.forEach(doc => {
 
                 if (inputValue === doc.data().username){
+
+                    // --- for change name in welcome --- //
+
                     inputValueText.innerText = doc.data().firstName;
+
+                    // --- profile page --- //
+
+                    adminIdNoLabel.innerText = doc.data().idNo;
+                    adminFirstNameLabel.value = doc.data().firstName;
+                    adminMiddleNameLabel.value = doc.data().middleName;
+                    adminLastNameLabel.value = doc.data().lastName;
+                    adminGenderLabel.value = doc.data().gender;
+                    adminBirthdayLabel.value = doc.data().birthdate;
+
+                    adminPositionLabel.innerText = doc.data().position;
+                    adminDateHiredLabel.innerText = doc.data().dateHired;
+                    adminUsernameLabel.value = doc.data().username;
+                    adminPasswordLabel.value = doc.data().password;
+
+                    const imageId = 'profilePic'; // replace with the ID of your image element
+                    const newImageUrl = doc.data().image; // replace with the URL of your new image
+                    const img = document.getElementById(imageId);
+                    img.setAttribute('src', newImageUrl);
+
+                    const mainImgId = 'profilePicMain';
+                    const mainImgUrl = doc.data().image;
+                    const mainImg = document.getElementById(mainImgId);
+                    mainImg.setAttribute('src',mainImgUrl);
+
+                    updateProfile.onclick = updateInfo;
+
                 }
 
             })
         }
 
-        getAdminName();
+        getAdminInfo();
 
         // -------------- function for save Changes Btn ------------- //
 
