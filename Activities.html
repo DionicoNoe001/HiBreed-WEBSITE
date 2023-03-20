@@ -350,7 +350,7 @@
             opacity: 1;
         }
     }
-    
+
     /* Modal Content/Box */
     .modal-content {
         background-color: #fefefe;
@@ -430,13 +430,13 @@
                             </h1>
                         
                         </div>
-                        <div>
+                        <!-- <div>
                         
                             <h1>
                                 ACTIVITY PAGE
                             </h1>
                         
-                        </div>
+                        </div> -->
                         <div>
                         
                             <h1>
@@ -490,29 +490,30 @@
                 <!-- <ul class="ulContent">
                     <li> -->
                         <a class="active" data-id="1">HOMEPAGE</a>
-                        
-                        <a data-id="2">ACTIVITIES</a>
                     
-                        <a data-id="3">USERS</a>
+                        <a data-id="2">USERS</a>
                     
-                        <a data-id="4">TRANSACTIONS</a>
+                        <a data-id="3">TRANSACTIONS</a>
                     
-                        <a data-id="5">SHOPS</a>
+                        <a data-id="4">SHOPS</a>
 
-                        <a data-id="6">QUESTIONS</a>
+                        <a data-id="5">QUESTIONS</a>
                     
-                        <a data-id="7">PROFILE</a>
+                        <a data-id="6">PROFILE</a>
 
-                        <a data-id="8">SYSTEM</a>
+                        <a data-id="7">SYSTEM</a>
                     <!-- </li>
                 </ul> -->
                 <!-- </nav> -->
             </div>
 
             <!-- Modal for USERS tab-->
+
             <div id="myModal" class="modal">
                 <div class="modal-content">
-                  <span class="close">&times;</span>
+                    <div id = 'user-span'>
+                        <span class="close">&times;</span>
+                    </div>
                   <h4 style="font-family: 'Open Sans', sans-serif;">Edit Information: </h4>
                   <hr style="border: solid 1px #e2dfdf; margin: 0;">
                     <div class="modal-body">
@@ -559,6 +560,100 @@
                 </div>
               </div>
 
+            <!-- modal for SHOP page -->
+
+            <div id="shopModal" class="modal">
+              <div class="modal-content">
+                  <div id="shop-span">
+                  <span class="close">&times;</span>
+                  </div>
+                <h4 style="font-family: 'Open Sans', sans-serif;">Owner's Information: </h4>
+                <hr style="border: solid 1px #e2dfdf; margin: 0;">
+                  <div class="modal-body">
+                     <label class="labs">ID No: </label>
+                     <label id="shopIdNoLabel" class="labs"></label>
+                     <br>
+                     <label class="labs">First Name: </label>
+                     <label id="shopFirstNameLabel" class="labs"></label>
+                     <br>
+                     <label class="labs">Middle Name: </label>
+                     <label id="shopMiddleNameLabel" class="labs" ></label>
+                     <br>
+                     <label class="labs">Last Name: </label>
+                     <label id="shopLastNameLabel" class="labs"></label>
+                     <br>
+                     <label class="labs">Gender: </label>
+                     <label id="shopGenderLabel" class="labs"></label>
+                     <br>
+                     <label class="labs">Birthdate: </label>
+                     <label id="shopBirthdayLabel" class="labs"></label>
+                     <br>
+                     <label class="labs">role: </label>
+                     <label id="shopRoleLabel" style="font-family: 'Open Sans', sans-serif;"></label>
+                     <br>
+                     <label class="labs">status: </label>
+                     <label id="shopStatusLabel" class="labs"></label>
+                     <hr>
+                     <label class="labs" style="width: 50%">Pets for Sale: </label>
+                     
+                     <label class="labs">Service Offered: </label>
+                     <br>
+                     <label id="petsForSaleLabel" class="labs" style="width: 50%"></label>
+                     <label id="serviceOfferedLabel" class="labs" style="width: 30%"></label>
+                  </div>
+                  <div class="modal-footer">
+                      <button id="shopCloseModalBtn" type="button" class="btn btn-secondary" style="font-family: 'Open Sans', sans-serif;">Close</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- modal for TRANSACTION page -->
+
+            <div id="transactionModal" class="modal">
+                <div class="modal-content">
+                    <div id="transaction-span">
+                    <span class="close">&times;</span>
+                    </div>
+                  <h4 style="font-family: 'Open Sans', sans-serif;">Owner's Information: </h4>
+                  <hr style="border: solid 1px #e2dfdf; margin: 0;">
+                    <div class="modal-body">
+                       <label class="labs">Transaction Ref No: </label>
+                       <label id="transactionRefLabel" class="labs"></label>
+                       <br>
+                       <label class="labs">Appointment ID: </label>
+                       <label id="appointmentIdLabel" class="labs"></label>
+                       <br>
+                       <label class="labs">Actor: </label>
+                       <label id="actorLabel" class="labs" ></label>
+                       <br>
+                       <label class="labs">Date Created: </label>
+                       <label id="" class="labs"></label>
+                       <br>
+                       <label class="labs">Total Amount: </label>
+                       <label id="" class="labs"></label>
+                       <br>
+                       <label class="labs">Transaction Type: </label>
+                       <label id="" class="labs"></label>
+                       <br>
+                       <label class="labs">role: </label>
+                       <label id="" style="font-family: 'Open Sans', sans-serif;"></label>
+                       <br>
+                       <label class="labs">status: </label>
+                       <label id="" class="labs"></label>
+                    
+                       <table id="">
+                        <thead>
+                                
+                        </thead>
+                        <tbody id=""></tbody>
+                       </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="" type="button" class="btn btn-secondary" style="font-family: 'Open Sans', sans-serif;">Close</button>
+                    </div>
+                </div>
+              </div>            
+
             <div class="search-bar">
 
                 <div class="search-bar search">
@@ -599,22 +694,6 @@
                     </section>
                 </div>
 
-                <!-- ACTIVITIES PAGE -->
-                <div>
-                    <section class="outer-wrapper">
-                        <section class="table-wrapper">
-                            <table id="activityTable">
-                                <thead>
-                                    <th class ="thleftcorner">ACTOR</th>
-                                    <th>ACTIVITY</th>
-                                    <th>DATE</th>
-                                    <th class ="thrightcorner">ACTION</th>
-                                </thead>
-                                <tbody id="tbody1"></tbody>
-                            </table>
-                        </section>
-                    </section>
-                </div>
                 <div>
                     <!-- <h1>
                         USERS PAGE
@@ -651,18 +730,10 @@
                                     <th class ="thleftcorner">ACTOR</th>
                                     <th>TRANSACTION REF NO.</th>
                                     <th>SHOP</th>
-                                    <th>DATE</th>
+                                    <th>DATE CREATED</th>
                                     <th class ="thrightcorner">ACTION</th>
                                 </thead>
-                                <tr>
-                                    <td>Juan Dela Cruz</td>
-                                    <td>01</td>
-                                    <td>Kin Shop</td>
-                                    <td>10/30/2022</td>
-                                    <td>
-                                        <i class="bi bi-pencil-square"></i>
-                                    </td>
-                                </tr>
+                                <tbody id="transactionTableBody"></tbody>
                             </table>
                         </section>
                     </section>
@@ -825,7 +896,7 @@
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
 
-            import { getFirestore, doc, getDoc, getDocs, onSnapshot, collection, query, deleteDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+            import { getFirestore, doc, getDoc, getDocs, onSnapshot, collection, query, deleteDoc, updateDoc, where} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             const db = getFirestore();
 
@@ -930,6 +1001,18 @@
 
         getAdminInfo();
 
+        // -------------- function for window.onclick close --------- //
+
+        function modalClose(modal) {
+          modal.style.display = "none";
+        }
+
+        function outsideModalClick(event, modal) {
+          if (event.target == modal) {
+            modalClose(modal);
+          }
+        }
+
         // -------------- function for save Changes Btn ------------- //
 
         async function saveChanges(){
@@ -968,7 +1051,7 @@
 
             var modal = document.getElementById("myModal");
 
-            var span = document.getElementsByClassName("close")[0];
+            var span = document.getElementById("user-span");
 
             const querySnapshot = await getDocs(collection(db,"User"));
 
@@ -1035,18 +1118,11 @@
 
                     statusInput.value = status;
 
-
                 }
                 
-                span.onclick = function() {
-                  modal.style.display = "none";
-                }
-
-                window.onclick = function(event) {
-                if (event.target == modal) {
-                  modal.style.display = "none";
-                    }
-                }
+                span.onclick = function () {
+                  modalClose(modal);
+                };
 
                 closeBtn.onclick = function() {
                     modal.style.display = "none";
@@ -1084,15 +1160,18 @@
             AddAllItemsToTable(data);
         }
 
-        
-        
-
         // ---- function for shop page ---- //
 
         async function GetAllShopData() {
 
             const querySnapshot = await getDocs(collection(db,"Shop"));
             const querySnapshot2 = await getDocs(collection(db,"User"));
+            const petQuerySnapshot = await getDocs(query(collection(db, "Pet"), where("displayFor", "==", "forSale")));
+            const serviceQuerySnapshot = await getDocs(collection(db,"Services"));
+
+            var shopCloseBtn = document.getElementById("shopCloseModalBtn");
+            var modal = document.getElementById("shopModal");
+            const span = document.getElementById("shop-span");
 
             const table = document.getElementById("shopTableBody");
 
@@ -1103,17 +1182,65 @@
                 const ownerIdNo = doc.data().breeder;
                 const shopName = doc.data().shopName;
 
+                let idNo = "";
+                let gender = "";
+                let birthday = "";
+                let address = "";
+                    
+                let firstName = "";
+                let middleName = "";
+                let lastName = "";
+                let fullName = "";
+
+                let role = "";
                 let status = "";
+
+                let petName = "";
+                let petBreed = "";
+
+                let serviceName = "";
+
+                let petArr = [];
+
+                let servArr = [];
 
                 querySnapshot2.forEach(doc => {
 
                     if (ownerIdNo === doc.data().idNo){
                     
+                        idNo = doc.data().idNo;
+                        gender = doc.data().gender;
+                        birthday = doc.data().birth;
+                        address = doc.data().address;
+
+                        firstName = doc.data().firstName;
+                        middleName = doc.data().middleName;
+                        lastName = doc.data().lastName;
+                        fullName = [firstName, middleName, lastName].filter(Boolean).join(" ");
+
+                        role = doc.data().role.join(", ");
                         status = doc.data().status;
-                    
+                        
                         }
 
                     });
+
+                
+                petQuerySnapshot.forEach(doc => {
+
+                    if(ownerIdNo === doc.data().pet_breeder){
+                        petArr += " · " + doc.data().pet_name + " - " + doc.data().pet_breed + "\n";
+                    }
+
+                });
+
+                serviceQuerySnapshot.forEach(doc => {
+                    
+                    if(ownerIdNo === doc.data().shooter_id){
+                        servArr += " · " + doc.data().name + "\n";
+                    }
+
+                });
 
                 const row = table.insertRow();
 
@@ -1134,36 +1261,30 @@
                 editButton.style.marginRight = "5px";
 
                 editButton.onclick = async function() {
-                    // modal.style.display = "block";
+                    modal.style.display = "block";
 
-                    // idNoLabel.innerText = idNo;
-                    // firstNameLabel.innerText = firstName;
-                    // middleNameLabel.innerText = middleName;
-                    // lastNameLabel.innerText = lastName;
-                    // genderLabel.innerText = gender;
-                    // birthdayLabel.innerText = birthday;
+                    shopIdNoLabel.innerText = idNo;
+                    shopFirstNameLabel.innerText = firstName;
+                    shopMiddleNameLabel.innerText = middleName;
+                    shopLastNameLabel.innerText = lastName;
+                    shopGenderLabel.innerText = gender;
+                    shopBirthdayLabel.innerText = birthday;
 
-                    // roleLabel.innerText = role;
+                    shopRoleLabel.innerText = role;
 
-                    // statusInput.value = status;
-                    // add modal for shop page
+                    shopStatusLabel.innerText = status;
+                    
+                    petsForSaleLabel.innerText = petArr;
+                    serviceOfferedLabel.innerText = servArr;
                 }
                 
-                // span.onclick = function() {
-                //   modal.style.display = "none";
-                // }
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
 
-                // window.onclick = function(event) {
-                // if (event.target == modal) {
-                //   modal.style.display = "none";
-                //     }
-                // }
-
-                // closeBtn.onclick = function() {
-                //     modal.style.display = "none";
-                // }
-
-                // saveChangesBtn.onclick = saveChanges;
+                shopCloseBtn.onclick = function() {
+                    modal.style.display = "none";
+                }
 
                 actionCell.appendChild(editButton);
 
@@ -1193,11 +1314,129 @@
             AddAllItemsToTable(data);
         }
 
+        // ---- function for transaction page ---- //
+
+        async function GetAllTransactionData() {
+
+            const shopQuerySnapshot = await getDocs(collection(db,"Shop"));
+            const transactionQuerySnapshot = await getDocs(collection(db,"Transaction"));
+            const appointmentQuerySnapshot = await getDocs(collection(db,"Appointments"));
+
+            const table = document.getElementById("transactionTableBody");
+
+            var data = [];
+
+            let seller = "";
+            let shop_name = "";
+
+            transactionQuerySnapshot.forEach(doc => {
+
+                const actor = doc.data().customer_id;
+                const transactionRefNo = doc.data().id;
+
+                const dateCreated = doc.data().trans_date_created;
+                const date = new Date(dateCreated.seconds * 1000);
+                const dateString = date.toLocaleDateString();
+
+                appointmentQuerySnapshot.forEach(doc => {
+
+                    if(actor === doc.data().customer_id){
+                     
+                        seller = doc.data().seller_id;
+
+                    }
+                });
+
+                shopQuerySnapshot.forEach(doc => {
+
+                    if(seller === doc.data().breeder){
+
+                        shop_name = doc.data().shopName;
+
+                    }
+
+                });
+
+                const row = table.insertRow();
+
+                const actorCell = row.insertCell();
+                actorCell.innerText = actor;
+
+                const transRefNoCell = row.insertCell();
+                transRefNoCell.innerText = transactionRefNo;
+
+                const shopCell = row.insertCell();
+                shopCell.innerText = shop_name;
+
+                const dateCreatedCell = row.insertCell();
+                dateCreatedCell.innerText = dateString;
+
+                const actionCell = row.insertCell();
+
+                const editButton = document.createElement("button");
+                editButton.className = "editBtn";
+                editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+                editButton.style.marginRight = "5px";
+
+                editButton.onclick = async function() {
+                    // modal.style.display = "block";
+
+                    // shopIdNoLabel.innerText = idNo;
+                    // shopFirstNameLabel.innerText = firstName;
+                    // shopMiddleNameLabel.innerText = middleName;
+                    // shopLastNameLabel.innerText = lastName;
+                    // shopGenderLabel.innerText = gender;
+                    // shopBirthdayLabel.innerText = birthday;
+
+                    // shopRoleLabel.innerText = role;
+
+                    // shopStatusLabel.innerText = status;
+                    
+                }
+                
+                // span.onclick = function() {
+                //   modal.style.display = "none";
+                // }
+
+                // shopCloseBtn.onclick = function() {
+                //     modal.style.display = "none";
+                // }
+
+                actionCell.appendChild(editButton);
+
+                const deleteButton = document.createElement("button");
+                deleteButton.className = "deleteBtn";
+                deleteButton.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+                
+                deleteButton.onclick = async function() {
+                  try {
+                    window.confirm("Are you sure you want to delete this document?");
+                    if(confirm == true)
+                    {
+                        await deleteDoc(doc.ref);
+                        window.alert("Document successfully deleted!");
+                        const row = deleteButton.closest("tr");
+                        row.remove();
+                    }
+                  } catch (error) {
+                    console.error("Error removing document: ", error);
+                  }
+                };
+
+                actionCell.appendChild(deleteButton);
+
+            });
+
+            AddAllItemsToTable(data);
+
+        }
+
         window.onload = () => {
             GetAllDataRealtime();
+            GetAllTransactionData();
             GetAllShopData();
         }
-        
+
           </script>
 
     </body>
