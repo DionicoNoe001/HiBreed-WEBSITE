@@ -9,7 +9,13 @@
     <title>Activity Page</title>
 
     <style> @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@500&display=swap'); </style>
-        
+    
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+    
 </head>
 
 <style>
@@ -416,10 +422,14 @@
         <div class="section_box">
             <div class="titleBar">
                 <div class="titleBar Column">
-                    <img id="profilePicMain" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                    <img id="profilePicMain" src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FprofileLogo.png?alt=media&token=7bae95cb-bf5a-4967-8c12-7efa0b4a4eff" alt="" class="profLogo">
 
-                    <h3>Welcome, <p style="display:inline-flex" id="adminName"></p> </h3>
-                    
+                    <h3>Welcome, <p style="display:inline-flex" id="adminName"></p>  
+                    </h3>
+                    <a style="margin-top: 146px; margin-left: 5px; color: #f82f21" href="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\login.html">
+                        <!-- <i class="fa-solid fa-arrow-right-from-bracket"></i>-->
+                        <p style="font-size: smaller;">Logout</p>
+                    </a>
                 </div>
                 <div class="titleBar Column" style="justify-content: center;" >
                     <main>
@@ -488,7 +498,7 @@
                     </main>
                 </div>
                 <div class="titleBar Column" style="justify-content:right;" >
-                    <img src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\LOGO.png" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover;">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FLOGO.png?alt=media&token=89f51ad3-7e0d-4b53-8d5b-3840f078cd6f" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover;">
                 </div>
             </div>
 
@@ -523,32 +533,37 @@
                     <div id = 'user-span'>
                         <span class="close">&times;</span>
                     </div>
-                  <h4 style="font-family: 'Open Sans', sans-serif;">Edit Information: </h4>
+                  <h4 style="font-family: 'Open Sans', sans-serif;">User's Information: </h4>
                   <hr style="border: solid 1px #e2dfdf; margin: 0;">
                     <div class="modal-body">
                        <label class="labs">ID No: </label>
-                       <label id="idNoLabel" class="labs"></label>
                        <br>
-                       <label class="labs">First Name: </label>
-                       <label id="firstNameLabel" class="labs"></label>
+                       <label id="idNoLabel" class="prof_label"></label>
                        <br>
+                       <label class="labs" style="width: 50%">First Name: </label>
                        <label class="labs">Middle Name: </label>
-                       <label id="middleNameLabel" class="labs" ></label>
+                       <br>
+                       <label id="firstNameLabel" class="prof_label"style="width: 50%"></label>
+                       <label id="middleNameLabel" class="prof_label"style="width: 49%"></label>
                        <br>
                        <label class="labs">Last Name: </label>
-                       <label id="lastNameLabel" class="labs"></label>
                        <br>
-                       <label class="labs">Gender: </label>
-                       <label id="genderLabel" class="labs"></label>
+                       <label id="lastNameLabel" class="prof_label"style="width: 100%"></label>
                        <br>
+                       <label class="labs" style="width:50%">Gender: </label>
                        <label class="labs">Birthdate: </label>
-                       <label id="birthdayLabel" class="labs"></label>
+                       <br>
+                       <label id="genderLabel" class="prof_label" style="width: 30%; margin-right: 20%;"></label>
+                       <label id="birthdayLabel" class="prof_label"style="width: 30%"></label>
                        <br>
                        <label class="labs">role: </label>
-                       <label id="roleLabel" style="font-family: 'Open Sans', sans-serif;"></label>
                        <br>
+                       <label id="roleLabel" class="prof_label" style="font-family: 'Open Sans', sans-serif; width: 100%;"></label>
+                       <br>
+                       <hr>
                        <label class="labs">status: </label>
-                       <select name="status" id="statusInput" class="labs">
+
+                       <select name="status" id="statusInput" class="prof_label">
                             <option value="pending">pending</option>
                             <option value="verified">verified</option>
                             <option value="suspended">suspended</option>
@@ -580,28 +595,28 @@
                 <hr style="border: solid 1px #e2dfdf; margin: 0;">
                   <div class="modal-body">
                      <label class="labs">ID No: </label>
-                     <label id="shopIdNoLabel" class="labs"></label>
+                     <label id="shopIdNoLabel" class="prof_label"></label>
                      <br>
                      <label class="labs">First Name: </label>
-                     <label id="shopFirstNameLabel" class="labs"></label>
+                     <label id="shopFirstNameLabel" class="prof_label"></label>
                      <br>
                      <label class="labs">Middle Name: </label>
-                     <label id="shopMiddleNameLabel" class="labs" ></label>
+                     <label id="shopMiddleNameLabel" class="prof_label" ></label>
                      <br>
                      <label class="labs">Last Name: </label>
-                     <label id="shopLastNameLabel" class="labs"></label>
+                     <label id="shopLastNameLabel" class="prof_label"></label>
                      <br>
                      <label class="labs">Gender: </label>
-                     <label id="shopGenderLabel" class="labs"></label>
+                     <label id="shopGenderLabel" class="prof_label"></label>
                      <br>
                      <label class="labs">Birthdate: </label>
-                     <label id="shopBirthdayLabel" class="labs"></label>
+                     <label id="shopBirthdayLabel" class="prof_label"></label>
                      <br>
                      <label class="labs">role: </label>
-                     <label id="shopRoleLabel" style="font-family: 'Open Sans', sans-serif;"></label>
+                     <label id="shopRoleLabel" style="font-family: 'Open Sans', sans-serif;" class="prof_label"></label>
                      <br>
                      <label class="labs">status: </label>
-                     <label id="shopStatusLabel" class="labs"></label>
+                     <label id="shopStatusLabel" class="prof_label"></label>
                      <hr>
                      <label class="labs" style="width: 50%">Pets for Sale: </label>
                      <label class="labs">Service Offered: </label>
@@ -627,7 +642,7 @@
                     <div class="modal-body">
                         <img id="petImage" src="" style="width: 200px; height: 200px; border-radius: 5px;">
                         <br>
-                    <hr>
+                    <hr style="border: 1px dashed gainsboro">
                        <label class="labs" style="width:8%">ID No: </label>
                        <label id="petDetailsIdLabel" class="prof_label" style="width: 30%"></label>
                        <br>
@@ -677,32 +692,31 @@
                     <div id="transaction-span">
                     <span class="close">&times;</span>
                     </div>
-                  <h4 style="font-family: 'Open Sans', sans-serif;">Owner's Information: </h4>
-                  <hr style="border: solid 1px #e2dfdf; margin: 0;">
+                  <h4 style="font-family: 'Open Sans', sans-serif;">Transaction Details: </h4>
+                  <hr style="border: solid 1px gainsboro; margin: 0;">
                     <div class="modal-body">
-                       <label class="labs">Transaction Ref No: </label>
-                       <label id="transactionRefLabel" class="labs"></label>
-                       <br>
+                       <label class="labs" style="width: 50%">Transaction Ref No: </label>
                        <label class="labs">Appointment ID: </label>
-                       <label id="appointmentIdLabel" class="labs"></label>
+                       <br>
+                       <label id="transactionRefLabel" class="prof_label" style="margin-right: 15%;"></label>
+                       <label id="appointmentIdLabel" class="prof_label"></label>
                        <br>
                        <label class="labs">Actor: </label>
-                       <label id="actorLabel" class="labs" ></label>
                        <br>
+                       <label id="TransActorLabel" class="prof_label" style="width: 100%" ></label>
+                       <br>
+                       <hr style="border: 1px dashed gainsboro">
                        <label class="labs">Date Created: </label>
-                       <label id="" class="labs"></label>
+                       <label id="transDateCreated" class="prof_label" style="width: 20%;"></label>
                        <br>
                        <label class="labs">Total Amount: </label>
-                       <label id="" class="labs"></label>
+                       <label id="transTotalAmount" class="prof_label"></label>
                        <br>
                        <label class="labs">Transaction Type: </label>
-                       <label id="" class="labs"></label>
-                       <br>
-                       <label class="labs">role: </label>
-                       <label id="" style="font-family: 'Open Sans', sans-serif;"></label>
+                       <label id="transType" class="prof_label"></label>
                        <br>
                        <label class="labs">status: </label>
-                       <label id="" class="labs"></label>
+                       <label id="transStatus" class="prof_label" style="width: 20%;"></label>
                     
                        <table id="">
                         <thead>
@@ -712,7 +726,7 @@
                        </table>
                     </div>
                     <div class="modal-footer">
-                        <button id="" type="button" class="btn btn-secondary" style="font-family: 'Open Sans', sans-serif;">Close</button>
+                        <button id="transactionCloseBtn" type="button" class="btn btn-secondary" style="font-family: 'Open Sans', sans-serif;">Close</button>
                     </div>
                 </div>
               </div>            
@@ -729,23 +743,23 @@
                     <div class="modal-body">
                        <label class="labs">Question Title: </label>
                        <br>
-                       <label id="questionTitleLabel" class="labs" style="width:100%"></label>
+                       <label id="questionTitleLabel" class="prof_label" style="width:100%"></label>
                        <br>
                        <label class="labs">Description: </label>
                        <br>
-                       <label id="descLabel" class="labs" style="width: 100%"></label>
+                       <textarea id="descLabel" class="labs" style="width: 100%; border-radius: 10px;" disabled></textarea>
                        <br>
                        <label class="labs">Date Posted: </label>
-                       <label id="datePostedLabel" class="labs" style="width: 50%"></label>
+                       <label id="datePostedLabel" class="prof_label" style="width: 30%"></label>
                        <br>
                        <label class="labs">Author: </label>
-                       <label id="authorLabel" class="labs" style="width: 50%"></label>
+                       <label id="authorLabel" class="prof_label" style="width: 30%"></label>
                        <br>
                        <label class="labs">Answered By: </label>
-                       <label id="answeredByLabel" class="labs" style="width: 50%"></label>
+                       <label id="answeredByLabel" class="prof_label" style="width: 50%"></label>
                        <br>
                        <label class="labs">Date Answered: </label>
-                       <label id="dateAnsweredLabel" class="labs" style="width: 50%"></label>
+                       <label id="dateAnsweredLabel" class="prof_label" style="width: 30%"></label>
                     
                        <table id="">
                         <thead>
@@ -1023,8 +1037,8 @@
                                         <label class="labs" style="width:20%; margin-bottom: 5px;">Membership ID: </label>
                                         <input id="regMemId" class="prof_label" style="margin-bottom: 10px;"></input>
                                         <br>
-                                        <label class="labs" style="width:140px;">Kennel Name: </label>
-                                        <input id="regMemKennelName" class="prof_input" style="width: 200px;margin-bottom: 5px;"></input>
+                                        <label class="labs" style="width:140px; display:none" id="kenLabel2">Kennel Name: </label>
+                                        <input id="regMemKennelName" class="prof_input" style="width: 200px;margin-bottom: 5px; display: none;" ></input>
                                         <br>
                                         <label class="labs" style="width:37%;">First Name: </label>
                                         <label class="labs" style="width: 110px">Middle Initial: </label>
@@ -1042,13 +1056,26 @@
                                         <br>
                                         <label class="labs" style="width:37%">Member Type: </label>
                                         <label class="labs" style="width:150px;">Registration Date: </label>
+                                        <label class="labs" style="width:37%; display:none" id="expLabel">Sample</label>
                                         <br>
-                                        <select name="memberType" id="memberTypeInput" class="prof_input" style="margin-right: 5px;margin-bottom: 5px;">
+                                        <!-- <select name="memberType" id="memberTypeInput" class="prof_input" style="margin-right: 5px;margin-bottom: 5px;">
                                             <option value="Breeder">Breeder</option>
                                             <option value="Shooter">Shooter</option>
                                             <option value="Veterinarian">Veterinarian</option>
-                                        </select>
+                                        </select> -->
+                                        <label for="breederCheckbox" class="labs" style="margin-left: 10px">Breeder</label>
+                                        <input type="checkbox" class="prof_input" style="width: 5%; margin-right: 67px;" name="memberType" id="breederCheckbox" value="Pet Breeder">
                                         <input id="regMemRegistrationDate" class="prof_input" style="width: 150px;margin-bottom: 5px;margin-right: 5px"></input>
+                                        <input id="expInput" class="prof_input" style="width: 150px;margin-bottom: 5px;margin-right: 5px; display:none "></input>
+                                        <br>
+                                        <label for="shooterCheckbox" class="labs" style="margin-left: 10px">Shooter</label>
+                                        <input type="checkbox" class="prof_input" style="width: 5%;margin-right: 10%;" name="memberType" id="shooterCheckbox" value="Pet Shooter">
+                                        <label class="labs" style="width:37%; display: none;" id="pcrLabel">Sample</label>
+                                        <!-- <label class="labs" style="width:140px;" id="kenLabel">Kennel Name: </label> -->
+                                        <br>
+                                        <label for="vetCheckbox" class="labs" style="margin-left: 10px">Veterinarian</label>
+                                        <input type="checkbox" class="prof_input" style="width: 5%;margin-right: 10%;" name="memberType" id="vetCheckbox" value="Veterinarian">
+                                        <input id="pcrInput" class="prof_input" style="width: 150px;margin-bottom: 5px;margin-right: 5px; display:none"></input>  
                                         <br>
                                         <label class="labs" style="width:37%">Address: </label>
                                         <br>
@@ -1119,7 +1146,65 @@
             nav[n - 1].classList.add('active')
         }
 
-        
+        // --------- To display an input element when checkbox is clicked ------- // 
+
+        const breederCheckbox = document.getElementById("breederCheckbox");
+        const vetCheckbox = document.getElementById("vetCheckbox");
+        const shootCheckbox = document.getElementById("shooterCheckbox");
+
+        const kenLabel = document.getElementById("kenLabel2");
+
+        const pcrLabel = document.getElementById("pcrLabel");
+        const pcrInput = document.getElementById("pcrInput");
+
+        const expLabel = document.getElementById("expLabel");
+        const expInput = document.getElementById("expInput");
+
+        breederCheckbox.addEventListener("change", function(){
+
+            if (breederCheckbox.checked) {
+         
+                regMemKennelName.style.display = "";          
+                kenLabel.style.display = "";
+
+            } else {
+
+                regMemKennelName.style.display = "none";
+                kenLabel.style.display = "none";
+            }
+
+        })
+
+        shootCheckbox.addEventListener("change", function() {
+
+            if (shootCheckbox.checked) {
+                expLabel.style.display = "";
+                expLabel.textContent = "Years of Exp.:"
+                expInput.style.display = "";
+
+            }else {
+                expLabel.style.display = "none";
+                expLabel.textContent = ""
+                expInput.style.display = "none";
+            }
+            
+        })
+
+        vetCheckbox.addEventListener("change", function(){
+
+            if (vetCheckbox.checked) {
+                pcrLabel.style.display = "";
+                pcrLabel.textContent = "PRC ID No:"
+                pcrInput.style.display = "";
+            }else {
+                pcrLabel.style.display = "none";
+                pcrLabel.textContent = ""
+                pcrInput.style.display = "none";
+            }
+
+        })
+
+
         // --------- Register Admin References -------------- // 
 
         let regAdminFirstName = document.getElementById("regAdminFirstName");
@@ -1171,7 +1256,7 @@
         registerAdminBtn.addEventListener("click", registerAdmin);
 
         // ------ References for Register Member ------ //
-;
+
             let regMemId = document.getElementById("regMemId");
             let regMemKennelName = document.getElementById("regMemKennelName");
             let regMemFirstName = document.getElementById("regMemFirstName");
@@ -1179,7 +1264,14 @@
             let regMemLastName = document.getElementById("regMemLastName");
             let regMemGender = document.getElementById("regMemGender");
             let regMemBirthdate = document.getElementById("regMemBirthdate");
-            let memberTypeInput = document.getElementById("memberTypeInput");
+
+            let breederType = document.getElementById("breederCheckbox");
+            let vetType = document.getElementById("vetCheckbox");
+            let shooterType = document.getElementById("shooterCheckbox");
+
+            let yearsOfExp = document.getElementById("expInput");
+            let pcrIdNo = document.getElementById("pcrInput");
+
             let regMemRegistrationDate = document.getElementById("regMemRegistrationDate");
             let regMemAddress = document.getElementById("regMemAddress");
 
@@ -1190,6 +1282,19 @@
         async function registerMember(){
 
             var ref = collection(db,'Members');
+    
+            let memberTypeInput = []; //initialize the memberTypeInput variable
+
+            //check the checkboxes to determine the member type
+            if (breederType.checked) {
+                memberTypeInput.push("Pet Breeder"); //add "Breeder" to the member type if the checkbox is checked
+            }
+            if (vetType.checked) {
+                memberTypeInput.push("Veterinarian"); //add "Vet" to the member type if the checkbox is checked
+            }
+            if (shooterType.checked) {
+                memberTypeInput.push("Pet Shooter"); //add "Shooter" to the member type if the checkbox is checked
+            }
 
             const docRef = await addDoc(
                 ref, {
@@ -1197,12 +1302,14 @@
                     birthday: regMemBirthdate.value,
                     dateOfRegistration: regMemRegistrationDate.value,
                     firstName: regMemFirstName.value,
-                    gender: regMemGender .value,
+                    gender: regMemGender.value,
                     kennelName: regMemKennelName.value,
+                    prc_id_no: pcrIdNo.value,
+                    yearsOfExp: yearsOfExp.value,
                     lastName: regMemLastName.value,
                     memberId: regMemId.value,
                     middleInitial: regMemMiddleInitial.value,
-                    type: memberTypeInput.value
+                    type: memberTypeInput
                 }
             )
             .then((docRef)=>{
@@ -1287,14 +1394,18 @@
 
                     const imageId = 'profilePic'; // replace with the ID of your image element
                     const newImageUrl = doc.data().image; // replace with the URL of your new image
+
+                    if (newImageUrl){
                     const img = document.getElementById(imageId);
                     img.setAttribute('src', newImageUrl);
+                    }
 
                     const mainImgId = 'profilePicMain';
                     const mainImgUrl = doc.data().image;
+                    if (mainImgUrl){
                     const mainImg = document.getElementById(mainImgId);
                     mainImg.setAttribute('src',mainImgUrl);
-
+                    }
                     updateProfile.onclick = updateInfo;
 
                 }
@@ -1792,12 +1903,18 @@
             const transactionQuerySnapshot = await getDocs(collection(db,"Transaction"));
             const appointmentQuerySnapshot = await getDocs(collection(db,"Appointments"));
 
+            var transactionCloseBtn = document.getElementById("transactionCloseBtn");
+            var modal = document.getElementById("transactionModal");
+            const span = document.getElementById("transaction-span");
+
             const table = document.getElementById("transactionTableBody");
+            
 
             var data = [];
 
             let seller = "";
             let shop_name = "";
+
 
             transactionQuerySnapshot.forEach(doc => {
 
@@ -1806,14 +1923,20 @@
 
                 const dateCreated = doc.data().trans_date_created;
                 const date = new Date(dateCreated.seconds * 1000);
+                const dateCreatedString = date.toLocaleDateString();
+
                 const status = doc.data().status;
+
+                const appId = doc.data().appointment_id;
+                const totAmt = doc.data().total_amount;
+                const transactionType = doc.data().trans_type;
 
                 appointmentQuerySnapshot.forEach(doc => {
 
                     if(actor === doc.data().customer_id){
                      
                         seller = doc.data().seller_id;
-
+                        
                     }
                 });
 
@@ -1845,32 +1968,30 @@
 
                 const editButton = document.createElement("button");
                 editButton.className = "editBtn";
-                editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+                editButton.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
                 editButton.style.marginRight = "5px";
 
                 editButton.onclick = async function() {
-                    // modal.style.display = "block";
+                    modal.style.display = "block";
 
-                    // shopIdNoLabel.innerText = idNo;
-                    // shopFirstNameLabel.innerText = firstName;
-                    // shopMiddleNameLabel.innerText = middleName;
-                    // shopLastNameLabel.innerText = lastName;
-                    // shopGenderLabel.innerText = gender;
-                    // shopBirthdayLabel.innerText = birthday;
-
-                    // shopRoleLabel.innerText = role;
-
-                    // shopStatusLabel.innerText = status;
+                    transactionRefLabel.innerText = transactionRefNo;
+                    appointmentIdLabel.innerText = appId;
+                    TransActorLabel.innerText = actor;
+                    transDateCreated.innerText = dateCreatedString;
+                    transTotalAmount.innerText = totAmt;
+                    transType.innerText = transactionType;
+                    // transRoleType.innerText = birthday;
+                    transStatus.innerText = status;
                     
                 }
                 
-                // span.onclick = function() {
-                //   modal.style.display = "none";
-                // }
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
 
-                // shopCloseBtn.onclick = function() {
-                //     modal.style.display = "none";
-                // }
+                transactionCloseBtn.onclick = function() {
+                    modal.style.display = "none";
+                }
 
                 actionCell.appendChild(editButton);
 
