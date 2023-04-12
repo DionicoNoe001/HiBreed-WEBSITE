@@ -171,7 +171,7 @@
         overflow-y: scroll;
         overflow-x: scroll;
         height: fit-content;
-        max-height: 450px;
+        max-height: 570px;
 
         margin-top: 22px;
 
@@ -774,11 +774,11 @@
                 </div>
               </div>            
 
-            <div class="search-bar">
+            <!-- <div class="search-bar">
 
                 <div class="search-bar search">
-                <input id="basic-search" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
-                <button class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                <input id="searchInput" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                <button id="SearchBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </div>
                 
                 <div class="search-bar search" style="width:30%"> 
@@ -791,7 +791,7 @@
                         </select>
                     <button class="search_btn-submit" type="submit"><i class="fa-solid fa-sort"></i> SORT BY</button>
                 </div>
-            </div>
+            </div> -->
 
             <div class="content">
 
@@ -820,6 +820,10 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
+                            <section style="margin-bottom: 30px;" class="search-bar search">
+                                <input id="searchUser" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                                <button id="searchUserBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </section>
                             <table id="userTable" style="width: 1500px; text-align: center;">
                                 <thead>
                                     <th class ="thleftcorner">ID NUMBER</th>
@@ -845,6 +849,10 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
+                            <section style="margin-bottom: 30px;" class="search-bar search">
+                                <input id="searchTransaction" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                                <button id="searchTransactionBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </section>
                             <table>
                                 <thead>
                                     <th class ="thleftcorner">ACTOR</th>
@@ -866,6 +874,10 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
+                            <section style="margin-bottom: 30px;" class="search-bar search">
+                                <input id="searchShop" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                                <button id="searchShopBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </section>
                             <table>
                                 <thead>
                                     <th class ="thleftcorner">OWNER ID NO.</th>
@@ -885,6 +897,10 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
+                            <section style="margin-bottom: 30px;" class="search-bar search">
+                                <input id="searchPet" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                                <button id="searchPetBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </section>
                             <table>
                                 <thead>
                                     <th class ="thleftcorner">OWNER NAME</th>
@@ -906,6 +922,10 @@
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
+                            <section style="margin-bottom: 30px;" class="search-bar search">
+                                <input id="searchQuestion" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
+                                <button id="searchQuestionBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                            </section>
                     <table>
                         <thead>
                             <tr style="text-align: center;">
@@ -985,7 +1005,7 @@
                 </div>
                 <div>
                     <!-- <h1>
-                        SYSTEM PAGE
+                        REGISTRATION PAGE
                     </h1> -->
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
@@ -1580,7 +1600,52 @@
             AddAllItemsToTable(data);
         }
 
+        //Search function for Users Table
+
+        let searchUserBtn = document.getElementById("searchUserBtn");
+        let searchUserInput = document.getElementById("searchUser");
+
+        searchUserBtn.addEventListener("click", searchUser);
+        searchUserInput.addEventListener("input", handleUserInput);
+
+        function searchUser() {
+          // Get the input value
+          var input = searchUserInput.value.toLowerCase();
         
+          // Get the table rows
+          var table = document.getElementById("userTableBody");
+          var rows = table.getElementsByTagName("tr");
+        
+          // Loop through all the rows and hide those that don't match the search query
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var match = false;
+            for (var j = 0; j < cells.length; j++) {
+              var cellText = cells[j].innerText.toLowerCase();
+              if (cellText.indexOf(input) > -1) {
+                match = true;
+                break;
+              }
+            }
+            if (match) {
+              rows[i].style.display = "";
+            } else {
+              rows[i].style.display = "none";
+            }
+          }
+        }
+
+        function handleUserInput() {
+          // Reset the table when input is erased
+          if (searchUserInput.value === "") {
+            var table = document.getElementById("userTableBody");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
+        }
+
         // ---- function for shop page ---- //
 
         async function GetAllShopData() {
@@ -1759,6 +1824,54 @@
             AddAllItemsToTable(data);
         }
 
+        // Search function for Shop page
+
+        let searchShopBtn = document.getElementById("searchShopBtn");
+        let searchShopInput = document.getElementById("searchShop");
+
+        searchShopBtn.addEventListener("click", searchShop);
+        searchShopInput.addEventListener("input", shopSearchInput);
+
+        
+        function searchShop() {
+          // Get the input value
+          var input = searchShopInput.value.toLowerCase();
+        
+          // Get the table rows
+          var table = document.getElementById("shopTableBody");
+          var rows = table.getElementsByTagName("tr");
+        
+          // Loop through all the rows and hide those that don't match the search query
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var match = false;
+            for (var j = 0; j < cells.length; j++) {
+              var cellText = cells[j].innerText.toLowerCase();
+              if (cellText.indexOf(input) > -1) {
+                match = true;
+                break;
+              }
+            }
+            if (match) {
+              rows[i].style.display = "";
+            } else {
+              rows[i].style.display = "none";
+            }
+          }
+        }
+
+        function shopSearchInput() {
+          // Reset the table when input is erased
+          if (searchShopInput.value === "") {
+            var table = document.getElementById("shopTableBody");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
+        }
+
+
         // ---- function for pets page ---- //
 
         async function GetAllPetData() {
@@ -1895,6 +2008,54 @@
 
         }
 
+        // Search function for Pet page 
+
+        let searchPetBtn = document.getElementById("searchPetBtn");
+        let searchPetInput = document.getElementById("searchPet");
+
+        searchPetBtn.addEventListener("click", searchPet);
+        searchPetInput.addEventListener("input", petSearchInput);
+
+        
+        function searchPet() {
+          // Get the input value
+          var input = searchPetInput.value.toLowerCase();
+        
+          // Get the table rows
+          var table = document.getElementById("petTableBody");
+          var rows = table.getElementsByTagName("tr");
+        
+          // Loop through all the rows and hide those that don't match the search query
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var match = false;
+            for (var j = 0; j < cells.length; j++) {
+              var cellText = cells[j].innerText.toLowerCase();
+              if (cellText.indexOf(input) > -1) {
+                match = true;
+                break;
+              }
+            }
+            if (match) {
+              rows[i].style.display = "";
+            } else {
+              rows[i].style.display = "none";
+            }
+          }
+        }
+
+        function petSearchInput() {
+          // Reset the table when input is erased
+          if (searchPetInput.value === "") {
+            var table = document.getElementById("petTableBody");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
+        }
+
+
         // ---- function for transaction page ---- //
 
         async function GetAllTransactionData() {
@@ -2022,6 +2183,53 @@
 
         }
 
+        // Search function for Transaction page
+
+        let searchTransactionBtn = document.getElementById("searchTransactionBtn");
+        let searchTransInput = document.getElementById("searchTransaction");
+
+        searchTransactionBtn.addEventListener("click", searchTransaction);
+        searchTransInput.addEventListener("input", searchTransactionInput);
+
+        
+        function searchTransaction() {
+          // Get the input value
+          var input = searchTransInput.value.toLowerCase();
+        
+          // Get the table rows
+          var table = document.getElementById("transactionTableBody");
+          var rows = table.getElementsByTagName("tr");
+        
+          // Loop through all the rows and hide those that don't match the search query
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var match = false;
+            for (var j = 0; j < cells.length; j++) {
+              var cellText = cells[j].innerText.toLowerCase();
+              if (cellText.indexOf(input) > -1) {
+                match = true;
+                break;
+              }
+            }
+            if (match) {
+              rows[i].style.display = "";
+            } else {
+              rows[i].style.display = "none";
+            }
+          }
+        }
+
+        function searchTransactionInput() {
+          // Reset the table when input is erased
+          if (searchTransInput.value === "") {
+            var table = document.getElementById("transactionTableBody");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
+        }
+
         // ---- function for Question Page ---- //
 
         async function GetAllQuestionData() {
@@ -2146,6 +2354,53 @@
 
             AddAllItemsToTable(data);
 
+        }
+
+        // Search function for Question Page
+
+        let searchQuestionBtn = document.getElementById("searchQuestionBtn");
+        let searchQuestionInput = document.getElementById("searchQuestion");
+
+        searchQuestionBtn.addEventListener("click", searchQuestion);
+        searchQuestionInput.addEventListener("input", questionSearchInput);
+
+        
+        function searchQuestion() {
+          // Get the input value
+          var input = searchQuestionInput.value.toLowerCase();
+        
+          // Get the table rows
+          var table = document.getElementById("questionTableBody");
+          var rows = table.getElementsByTagName("tr");
+        
+          // Loop through all the rows and hide those that don't match the search query
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var match = false;
+            for (var j = 0; j < cells.length; j++) {
+              var cellText = cells[j].innerText.toLowerCase();
+              if (cellText.indexOf(input) > -1) {
+                match = true;
+                break;
+              }
+            }
+            if (match) {
+              rows[i].style.display = "";
+            } else {
+              rows[i].style.display = "none";
+            }
+          }
+        }
+
+        function questionSearchInput() {
+          // Reset the table when input is erased
+          if (searchQuestionInput.value === "") {
+            var table = document.getElementById("questionTableBody");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
         }
 
         window.onload = () => {
