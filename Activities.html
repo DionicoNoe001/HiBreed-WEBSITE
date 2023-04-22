@@ -20,6 +20,8 @@
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
+
     .titleBar {
         position: relative;
         width: 100%;
@@ -42,13 +44,15 @@
     .titleBar.Column h3 {
         margin-top: 134px;
         margin-bottom: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 400;
+        /* font-size: 35px; */
     }
 
     .section {
         height: 1000px;
         width: 100%;
-        background: radial-gradient(#e9c562, #ffc10745);
+        background: radial-gradient(#ffcd37ad, #ff470494);
         position: relative;
         
     }
@@ -77,6 +81,8 @@
       background-color: #fee79e;
       display: flex;
       justify-content: space-around;
+      border-top-right-radius: 15px ;
+      border-top-left-radius: 15px ;
     }
     
     .topnav a {
@@ -94,12 +100,16 @@
     .topnav a:hover {
       background-color: #e9c562;
       color: black;
+      border-top-right-radius: 15px ;
+      border-top-left-radius: 15px ;
       
     }
     
     .topnav a.active {
       background-color: #fff6d8;
       color: rgb(0, 0, 0);
+      border-top-right-radius: 15px ;
+      border-top-left-radius: 15px ;
     }
 
     .content {
@@ -198,7 +208,7 @@
         top: 0px;
         
         width: 250px;
-        background-color: #fd6459;
+        background-color: #d5394a;
         color: #eee;
         
         text-align: center;
@@ -268,7 +278,7 @@
         padding: 10px;
         color: #eee;
         font-size: 13px;
-        background-color: #fd6459;
+        background-color: #d5394a;
         border: 0;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -417,12 +427,12 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/23f4928225.js" crossorigin="anonymous"></script>
-
+        
         <div class="section">
         <div class="section_box">
             <div class="titleBar">
                 <div class="titleBar Column">
-                    <img id="profilePicMain" src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FprofileLogo.png?alt=media&token=7bae95cb-bf5a-4967-8c12-7efa0b4a4eff" alt="" class="profLogo">
+                    <img style="border-style: ridge;" id="profilePicMain" src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FprofileLogo.png?alt=media&token=7bae95cb-bf5a-4967-8c12-7efa0b4a4eff" alt="" class="profLogo">
 
                     <h3>Welcome, <p style="display:inline-flex" id="adminName"></p>  
                     </h3>
@@ -498,7 +508,7 @@
                     </main>
                 </div>
                 <div class="titleBar Column" style="justify-content:right;" >
-                    <img src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FLOGO.png?alt=media&token=89f51ad3-7e0d-4b53-8d5b-3840f078cd6f" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover;">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2FLOGO.png?alt=media&token=89f51ad3-7e0d-4b53-8d5b-3840f078cd6f" style="width: 400px; height: 180px; margin: 0px; display: flex; object-fit: cover; ">
                 </div>
             </div>
 
@@ -774,33 +784,15 @@
                 </div>
               </div>            
 
-            <!-- <div class="search-bar">
-
-                <div class="search-bar search">
-                <input id="searchInput" class="search_input" type="search" name="search" maxlength="100" placeholder="Search" required />
-                <button id="SearchBtn" class="search_btn-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-                </div>
-                
-                <div class="search-bar search" style="width:30%"> 
-                        <select class="dropdown" id="sort" name="sort">
-                          <option value="" disabled selected>-- Select One --</option>
-                          <option value="1">NAME - ASCENDING</option>
-                          <option value="2">NAME - DESCENDING</option>
-                          <option value="3">DATE - ASCENDING</option>
-                          <option value="4">DATE - DESCENDING</option>
-                        </select>
-                    <button class="search_btn-submit" type="submit"><i class="fa-solid fa-sort"></i> SORT BY</button>
-                </div>
-            </div> -->
 
             <div class="content">
 
                 <!-- DASHBOARD -->
-                <div class="active">
+                <div class="active" style=" height: 700px; background-image: url(https://firebasestorage.googleapis.com/v0/b/hi-breed-ca22b.appspot.com/o/websiteImages%2Fbg.jpg?alt=media&token=152caee9-67d9-46ca-9cb7-5fc4d0440403); background-size: 1617.55px 700px ;">
         
                     <section class="outer-wrapper">
                         <section class="table-wrapper">
-                            <H1>WELCOME TO HI-BREED ADMIN SYSTEM</H1>
+                            <!-- <H1>WELCOME TO HI-BREED ADMIN SYSTEM</H1> -->
                             <!-- <table id="activityTable">
                                 <thead>
                                     <th class ="thleftcorner">ACTOR</th>
@@ -955,12 +947,12 @@
                         <section class="table-wrapper">
                             <section style="display: inline-block; background-color: #fffaed; border-radius: 10px;">
                                 <section style="display: flex; width: 1500px; justify-content: center;">
-                                    <h3 style="margin-top: 20px;">Profile Information</h3>
+                                    <h3 style="margin-top: 20px;font-family: 'Roboto Slab', serif;">Profile Information</h3>
                                 </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 0; margin-right: 10px; margin-left: 10px; ">
                                 <section style="display: inline-flex">
                                     <section style="display: flex; justify-content: right; width: 600px; margin-right: 10px;">
-                                        <img id="profilePic" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
+                                        <img style="border-style: ridge;" id="profilePic" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
                                     </section>
                                     <section style="display: inline; width: 800px">
                                         <label class="labs" style="width:10%">ID No: </label>
@@ -1019,7 +1011,7 @@
                                         <img id="profilePic" src="C:\Users\noeco\OneDrive\Desktop\HiBreed\HiBreed-WEBSITE\Images\profileLogo.png" alt="" class="profLogo">
                                     </section> -->
                                     <section style="display: inline; width: 700px; margin-left: 80px;">
-                                        <h3 style="margin-top: 20px;">Admin Registration</h3>
+                                        <h3 style="margin-top: 20px; font-family: 'Roboto Slab', serif;">Admin Registration</h3>
                                         <!-- <br> -->
                                         <!-- <label class="labs" style="width:10%">ID No: </label>
                                         <input id="regAdminId" class="prof_input" style="margin-bottom: 5px;"></input> -->
@@ -1052,7 +1044,7 @@
                                     </section>
 
                                     <section style="display: inline; width: 700px; margin-left: 50px;">
-                                        <h3 style="margin-top: 20px;">Member Registration</h3>
+                                        <h3 style="margin-top: 20px; font-family: 'Roboto Slab', serif;">Member Registration</h3>
                                         <br>
                                         <label class="labs" style="width:20%; margin-bottom: 5px;">Membership ID: </label>
                                         <input id="regMemId" class="prof_label" style="margin-bottom: 10px;"></input>
@@ -1105,7 +1097,8 @@
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
                                     <section style="display: flex; width: 1500px; justify-content: center;">
                                         <button id="registerAdminBtn" type="button" class="search_btn-submit" style="font-family: 'Open Sans', sans-serif; border-radius: 10px; margin-right: 40%">Register Admin</button>
-                                        <button id="registerMemberBtn" type="button" class="search_btn-submit" style="font-family: 'Open Sans', sans-serif; border-radius: 10px; margin-right: 85px">Register Member</button>              
+                                        <button id="registerMemberBtn" type="button" class="search_btn-submit" style="font-family: 'Open Sans', sans-serif; border-radius: 10px; margin-right: 42.5px">Register Member</button> 
+                                        <button id="verifyMemberBtn" type="button" class="search_btn-submit" style="background-color: #4f79c7; color: #ffffff; font-family: 'Open Sans', sans-serif; border-radius: 10px; margin-right: 42.5px">Verify Member</button> 
                                     </section>
                                 <hr style="border: solid 1px #fffaed; margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
                             </section>
@@ -1115,14 +1108,15 @@
             </div>
 
         </div>
-          
+
         <script type="module">
 
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
             import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
             
-            // TODO: Add SDKs for Firebase products that you want to use
+
+            // TODO: Add SDKs for Firebase products that you want to use    
             // https://firebase.google.com/docs/web/setup#available-libraries
           
             // Your web app's Firebase configuration
@@ -1145,7 +1139,7 @@
             import { getFirestore, doc, getDoc, getDocs, addDoc, onSnapshot, collection, query, deleteDoc, updateDoc, where} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             const db = getFirestore();
-
+            
             //-------- Functions for top Navbar changes --------//
     
             document.querySelectorAll('.topnav a')
@@ -1224,6 +1218,16 @@
 
         })
 
+        // ------ Function for verify Member Btn ------ //
+
+        var verifyMemberBtn = document.getElementById("verifyMemberBtn");
+        var verificationCloseModalBtn = document.getElementById("verificationCloseModalBtn");
+        var verifyModal = document.getElementById("verificationModal");
+        var verifySpan = document.getElementById("verification-span");
+
+        verifyMemberBtn.onclick = function () {
+            window.open('https://online.prc.gov.ph/verification', 'newwindow', 'width=400, heigh=600');
+        }
 
         // --------- Register Admin References -------------- // 
 
@@ -2314,7 +2318,7 @@
                     descLabel.innerText = ' - ' + desc;
                     datePostedLabel.innerText = datePostedString;
                     authorLabel.innerText = author;
-                    answeredByLabel.innerText = answeredBy;
+                    answeredByLabel.innerText =  answeredByCell.innerText;
                     dateAnsweredLabel.innerText = dateAnsweredString;
                 
                 }
