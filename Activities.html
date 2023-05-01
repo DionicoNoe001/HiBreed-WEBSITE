@@ -570,6 +570,11 @@
                        <br>
                        <label id="roleLabel" class="prof_label" style="font-family: 'Open Sans', sans-serif; width: 100%;"></label>
                        <br>
+                       <label id="validIdLabel" class="labs" style="width: 50%; display: none" >Valid ID Photo: </label>
+                       <label id="parentConcentLabel" class="labs" style="display: none">Parent's Concent: </label>
+                       <br>
+                       <img id="validIdImg" src="" alt="" style="border-radius: 5px; width: 250px; height: 180px; border-style: ridge; margin-right: 110px;display: none" >
+                       <img id="parentConcentImg" src="" alt="" style="border-radius: 5px; width: 250px; height: 180px; border-style: ridge;display: none" >
                        <hr>
                        <label class="labs">status: </label>
 
@@ -1501,6 +1506,11 @@
 
             const table = document.getElementById("userTableBody");
 
+            let validIdLabel = document.getElementById("validIdLabel");
+            let parentConcentLabel = document.getElementById("parentConcentLabel");
+            let validIdImg = document.getElementById("validIdImg");
+            let parentConcentImg = document.getElementById("parentConcentImg");
+
             var data = [];
 
             querySnapshot.forEach(doc => {
@@ -1517,6 +1527,9 @@
 
                 const role = doc.data().role.join(", ");
                 const status = doc.data().status;
+
+                const parentValidId = doc.data().parent_valid_id;
+                const parentConcent = doc.data().parent_consent;
 
                 const row = table.insertRow();
 
@@ -1559,6 +1572,45 @@
                     birthdayLabel.innerText = birthday;
 
                     roleLabel.innerText = role;
+                    
+                    if(role === "Pet Owner" && role.length === 9){
+
+                        validIdLabel.style.display ="";
+                        parentConcentLabel.style.display ="";
+                        validIdImg.style.display = "";
+                        parentConcentImg.style.display = "";
+
+                        validIdImg.setAttribute('src', parentValidId);
+                        parentConcentImg.setAttribute('src', parentConcent);
+
+                        validIdImg.addEventListener('click', function() {
+                            const screenW = screen.width;
+                            const screenH = screen.height;
+                            const windowW = 530;
+                            const windowH = 1500;
+                            const left = 0;
+                            const top = 0;
+                            window.open(parentValidId, 'validIdWindow', `width=${windowW},height=${windowH},left=${left},top=${top}`);
+                        });
+
+                        parentConcentImg.addEventListener('click', function() {
+                            const screenW = screen.width;
+                            const screenH = screen.height;
+                            const windowW = 550;
+                            const windowH = 1500;
+                            const left = screenW - windowW;
+                            const top = 0;
+                            window.open(parentConcent, 'parentConcentWindow', `width=${windowW},height=${windowH},left=${left},top=${top}`);
+                        });
+
+                    }else {
+
+                        validIdLabel.style.display ="none";
+                        parentConcentLabel.style.display ="none";
+                        validIdImg.style.display = "none";
+                        parentConcentImg.style.display = "none";
+
+                    }
 
                     statusInput.value = status;
 
